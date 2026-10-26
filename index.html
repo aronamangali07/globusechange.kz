@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="images/globus-exchange-logo.png">
+<script>
+/* СТРАХОВКА ОТ ПУСТОЙ СТРАНИЦЫ (31.08.2026).
+   Содержимое этапов скрыто (.anim{opacity:0}) и показывается скриптом внизу страницы.
+   Это «fail-closed»: если скрипт не отработал — ошибка в старом браузере, оборванная
+   загрузка, блокировщик — посетитель видит только шапку и белый экран. Так и случилось
+   у студентки во встроенном браузере WhatsApp.
+   Теперь скрытие включается ТОЛЬКО когда html помечен классом js, и если через 4 секунды
+   ни один этап не ожил — метка снимается и всё содержимое показывается как есть.
+   Без анимации, зато видно. */
+document.documentElement.className += ' js';
+setTimeout(function () {
+  if (!document.querySelector('.stage.live')) {
+    document.documentElement.className = document.documentElement.className.replace(/\bjs\b/, '');
+  }
+}, 3000);
+
+document.addEventListener('visibilitychange', function () {
+  if (document.visibilityState !== 'visible') return;
+  setTimeout(function () {
+    var e = document.querySelector('.stage.live .anim');
+    if (e && getComputedStyle(e).opacity === '0') {
+      document.documentElement.className = document.documentElement.className.replace(/\bjs\b/, '');
+    }
+  }, 400);
+});
+</script>
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#FBF8F3">
+<title>Work and Travel для студентов Казахстана</title>
+<meta name="description" content="Work and Travel USA для студентов Казахстана: виза J-1, легальная работа в США на летних каникулах и месяц на путешествия. Тарифы, вакансии сезона 2027, расчёт заработка.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- ШРИФТЫ. Здесь одним запросом тянулись четыре семейства в десяти начертаниях —
+     13 файлов, 485 КБ. Два изменения (02.09.2026):
+     1) JetBrains Mono 500 убрано: оно встречалось ровно в одном месте и заменено на 400.
+     2) Caveat вынесен отдельной строкой с параметром text — Google отдаёт шрифт только
+        из перечисленных букв. Caveat стоит в единственной надписи «Ваш момент будет
+        здесь», а весил 96 КБ в двух файлах; в подрезанном виде — 15 КБ в одном.
+        ВАЖНО: если менять текст этой надписи, буквы надо добавить в text=, иначе
+        новые символы отрисуются запасным шрифтом. Набор покрывает русский, казахский
+        и английский варианты фразы. -->
+<!-- Стили шрифтов подключены не блокирующе (02.09.2026). Обычный rel="stylesheet"
+     останавливает отрисовку до ответа Google: замер на боевом сайте показал 345 мс,
+     в течение которых человек видит пустой экран. Причём ожидание бессмысленное — у
+     шрифтов стоит display=swap, то есть текст всё равно сначала рисуется запасным
+     шрифтом и подменяется потом. Приём media="print" + onload переводит запрос в
+     фоновый: браузер считает стиль ненужным для экрана и не ждёт его, а когда файл
+     приезжает — обработчик возвращает media="all" и шрифты применяются.
+     noscript ниже — для браузеров с выключенным JavaScript: там обработчик не
+     сработает, поэтому стиль подключается обычным способом. -->
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Onest:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap&text=%20Yeghmnorstu%D0%92%D0%A1%D0%B0%D0%B1%D0%B4%D0%B5%D0%B7%D0%BB%D0%BC%D0%BD%D0%BE%D1%81%D1%82%D1%83%D1%88%D1%8B%D1%8C%D1%96%D2%A3%D3%99" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Onest:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap&text=%20Yeghmnorstu%D0%92%D0%A1%D0%B0%D0%B1%D0%B4%D0%B5%D0%B7%D0%BB%D0%BC%D0%BD%D0%BE%D1%81%D1%82%D1%83%D1%88%D1%8B%D1%8C%D1%96%D2%A3%D3%99" rel="stylesheet">
+</noscript>
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"EducationalOrganization",
+ "name":"GLOBUS EXCHANGE",
+ "alternateName":"Work and Travel USA — GLOBUS EXCHANGE",
+ "url":"https://workandtravelus.kz/",
+ "logo":"https://workandtravelus.kz/wt2027/images/globus-exchange-logo.png",
+ "image":"https://workandtravelus.kz/wt2027/preview.jpg",
+ "description":"Агентство программы студенческого обмена Work and Travel USA в Казахстане. Официальный представитель американских спонсоров CIEE и Alliance Abroad.",
+ "telephone":"+7 771 406-45-49",
+ "email":"hi@workandtravelus.kz",
+ "address":[{
+  "@type":"PostalAddress",
+  "streetAddress":"ул. Гагарина, 236Б",
+  "addressLocality":"Алматы",
+  "addressCountry":"KZ"
+ },
+ {
+  "@type":"PostalAddress",
+  "streetAddress":"БЦ «Таймас», офис 301, ул. Бейбит Майлина, 19",
+  "addressLocality":"Астана",
+  "addressCountry":"KZ"
+ }],
+ "areaServed":{"@type":"Country","name":"Казахстан"},
+ "sameAs":["https://www.instagram.com/globus_exchange_/"],
+ "openingHoursSpecification":[
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"11:30","closes":"18:00"}
+ ]
+}
+</script>
+<link rel="canonical" href="https://workandtravelus.kz/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GLOBUS EXCHANGE · Work and Travel USA">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://workandtravelus.kz/">
+<meta property="og:title" content="Work and Travel для студентов Казахстана">
+<meta property="og:description" content="Виза J-1, легальная работа в США на каникулах и месяц на путешествия. Тарифы, вакансии сезона 2027 и расчёт заработка.">
+<meta property="og:image" content="https://workandtravelus.kz/wt2027/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Work and Travel для студентов Казахстана">
+<meta name="twitter:description" content="Виза J-1, работа в США на каникулах и месяц на путешествия. Тарифы и вакансии сезона 2027.">
+<meta name="twitter:image" content="https://workandtravelus.kz/wt2027/preview.jpg">
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header id="hd">
+  <div class="wrap bar">
+    <a class="logo" href="#top"><img src="images/globus-exchange-logo.png" alt="Globus Exchange Programs"></a>
+    <div class="flightno">Flight WT-2027 · KAZ → USA</div>
+    <div class="lang" id="lang" role="group" aria-label="Язык страницы"><button type="button" class="on" data-l="ru">RU</button><button type="button" data-l="kz">KZ</button><button type="button" data-l="en">EN</button></div>
+    <a class="btn btn-ig btn-s btn-ico ig-hd" href="https://www.instagram.com/globus_exchange_/" target="_blank" rel="noopener" aria-label="Instagram GLOBUS EXCHANGE" style="margin-left:20px"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.3"/><circle class="dot" cx="17.3" cy="6.7" r="1.35"/></svg></a>
+    <a class="btn btn-1 btn-s" href="#gate8" style="margin-left:10px">Консультация</a>
+  </div>
+  <button class="evstrip" id="evstrip" type="button" hidden><b>18 сентября</b> · презентация</button>
+</header>
+
+<nav class="rail" id="rail" aria-label="Этапы маршрута">
+  <div class="mp-top">WT<br>2027</div>
+  <a href="#top" data-c="00"><i>00</i><span>Терминал</span></a>
+  <a href="#gate1" data-c="01"><i>01</i><span>О программе</span></a>
+  <a href="#gate1s" data-c="02"><i>02</i><span>Спонсоры</span></a>
+  <a href="#gate1b" data-c="03"><i>03</i><span>Сопровождение</span></a>
+  <a href="#gate2" data-c="04"><i>04</i><span>Гейт A1</span></a>
+  <a href="#gate3" data-c="05"><i>05</i><span>Вакансии и карта</span></a>
+  <a href="#gate5" data-c="06"><i>06</i><span>Расчёт</span></a>
+  <a href="#gate5b" data-c="07"><i>07</i><span>Тарифы</span></a>
+    <a href="#gate4" data-c="08"><i>08</i><span>Паспортный контроль</span></a>
+  <a href="#gate6" data-c="09"><i>09</i><span>Взлёт</span></a>
+  <a href="#gate7b" data-c="10"><i>10</i><span>Подбор маршрута</span></a>
+  <a href="#gate8" data-c="11"><i>11</i><span>Посадка</span></a>
+  <div class="mp-count" id="mpCount">0 / 11</div>
+</nav>
+
+<main id="top">
+
+<!-- ТЕРМИНАЛ -->
+<section class="stage" id="stage0" data-rail="0" style="border-top:0">
+  <svg class="stripesdeco" viewBox="0 0 520 240" aria-hidden="true">
+    <g fill="none" stroke="#FF4438" stroke-width="13" stroke-linecap="round" opacity=".55">
+      <path d="M-20 26 C 110 -14, 250 62, 400 16 S 560 34, 580 6"/>
+      <path d="M-20 58 C 110 18, 250 94, 400 48 S 560 66, 580 38"/>
+      <path d="M-20 90 C 110 50, 250 126, 400 80 S 560 98, 580 70"/>
+    </g>
+    <g fill="#2F6BFF" opacity=".5">
+      <path d="M60 150l4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1z"/>
+      <path d="M132 186l3 6 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1z"/>
+      <path d="M24 200l2 5 6 1-4 4 1 6-5-3-5 3 1-6-4-4 6-1z"/>
+    </g>
+  </svg>
+  <div class="stub" aria-hidden="true"><b>GLOBUS EXCHANGE · BOARDING PASS · KAZ→USA</b></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <div class="slam" aria-hidden="true">Terminal<small>KAZ · WT-2027</small></div>
+        <div class="anim">
+          <p class="pa pa-alert"><i></i>Регистрация на сезон 2027 открыта</p>
+        </div>
+        <div class="anim">
+          <div class="iata-row">
+            KAZ
+            <span class="ln"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M30 16c0 1.4-1.2 2.4-2.6 2.4H15.6l-8 8H4.4l4.2-8.6H0L-3.2 22h-2.6L-4.4 16-5.8 10h2.6L0 13.4h8.6L4.4 5.4h3.2l8 8h11.8C28.8 13.4 30 14.6 30 16z" fill="#D8382F"/></svg></span>
+            USA
+          </div>
+          <h1>Ваш билет<br>в лучшее лето</h1>
+        </div>
+        <div class="anim">
+          <p class="lead" style="margin-top:20px">Work and Travel USA — легальная работа в Америке на каникулах и месяц на путешествия. Маршрут собран по этапам: на каждом экране свой шаг — от знакомства с программой до посадки в самолёт.</p>
+        </div>
+        <div class="anim cta-row">
+          <a class="btn btn-1" href="#gate1">Начать маршрут →</a>
+          <a class="btn btn-2" href="#gate8">Сразу к заявке</a>
+        </div>
+        <div class="anim scrollhint"><b>↓</b> листайте — этапы открываются один за другим</div>
+      </div>
+      <div class="anim heromap">
+        <div class="hm-head">
+          <span><i></i>Куда летают участники</span>
+          <span class="hm-code">KAZ → USA</span>
+        </div>
+        <svg class="hm-svg" viewBox="0 0 1000 706" role="img" aria-label="Карта США: штаты, куда отправляем участников">
+          <defs><path id="usdots" d="M82.7 11.3h6v6h-6zM97.0 11.3h6v6h-6zM111.3 11.3h6v6h-6zM125.6 11.3h6v6h-6zM139.9 11.3h6v6h-6zM154.1 11.3h6v6h-6zM168.4 11.3h6v6h-6zM82.7 25.6h6v6h-6zM97.0 25.6h6v6h-6zM111.3 25.6h6v6h-6zM125.6 25.6h6v6h-6zM139.9 25.6h6v6h-6zM154.1 25.6h6v6h-6zM168.4 25.6h6v6h-6zM182.7 25.6h6v6h-6zM197.0 25.6h6v6h-6zM211.3 25.6h6v6h-6zM225.6 25.6h6v6h-6zM68.4 39.9h6v6h-6zM82.7 39.9h6v6h-6zM97.0 39.9h6v6h-6zM111.3 39.9h6v6h-6zM125.6 39.9h6v6h-6zM139.9 39.9h6v6h-6zM154.1 39.9h6v6h-6zM168.4 39.9h6v6h-6zM182.7 39.9h6v6h-6zM197.0 39.9h6v6h-6zM211.3 39.9h6v6h-6zM225.6 39.9h6v6h-6zM239.9 39.9h6v6h-6zM254.1 39.9h6v6h-6zM268.4 39.9h6v6h-6zM282.7 39.9h6v6h-6zM297.0 39.9h6v6h-6zM539.9 39.9h6v6h-6zM68.4 54.1h6v6h-6zM82.7 54.1h6v6h-6zM97.0 54.1h6v6h-6zM111.3 54.1h6v6h-6zM125.6 54.1h6v6h-6zM139.9 54.1h6v6h-6zM154.1 54.1h6v6h-6zM168.4 54.1h6v6h-6zM182.7 54.1h6v6h-6zM197.0 54.1h6v6h-6zM211.3 54.1h6v6h-6zM225.6 54.1h6v6h-6zM239.9 54.1h6v6h-6zM254.1 54.1h6v6h-6zM268.4 54.1h6v6h-6zM282.7 54.1h6v6h-6zM297.0 54.1h6v6h-6zM311.3 54.1h6v6h-6zM325.6 54.1h6v6h-6zM339.9 54.1h6v6h-6zM354.1 54.1h6v6h-6zM368.4 54.1h6v6h-6zM382.7 54.1h6v6h-6zM397.0 54.1h6v6h-6zM411.3 54.1h6v6h-6zM525.6 54.1h6v6h-6zM554.1 54.1h6v6h-6zM939.9 54.1h6v6h-6zM954.1 54.1h6v6h-6zM68.4 68.4h6v6h-6zM82.7 68.4h6v6h-6zM97.0 68.4h6v6h-6zM111.3 68.4h6v6h-6zM125.6 68.4h6v6h-6zM139.9 68.4h6v6h-6zM154.1 68.4h6v6h-6zM168.4 68.4h6v6h-6zM182.7 68.4h6v6h-6zM197.0 68.4h6v6h-6zM211.3 68.4h6v6h-6zM225.6 68.4h6v6h-6zM239.9 68.4h6v6h-6zM254.1 68.4h6v6h-6zM268.4 68.4h6v6h-6zM282.7 68.4h6v6h-6zM297.0 68.4h6v6h-6zM311.3 68.4h6v6h-6zM325.6 68.4h6v6h-6zM339.9 68.4h6v6h-6zM354.1 68.4h6v6h-6zM368.4 68.4h6v6h-6zM382.7 68.4h6v6h-6zM397.0 68.4h6v6h-6zM411.3 68.4h6v6h-6zM425.6 68.4h6v6h-6zM439.9 68.4h6v6h-6zM454.1 68.4h6v6h-6zM468.4 68.4h6v6h-6zM482.7 68.4h6v6h-6zM497.0 68.4h6v6h-6zM511.3 68.4h6v6h-6zM525.6 68.4h6v6h-6zM554.1 68.4h6v6h-6zM568.4 68.4h6v6h-6zM925.6 68.4h6v6h-6zM939.9 68.4h6v6h-6zM954.1 68.4h6v6h-6zM54.1 82.7h6v6h-6zM68.4 82.7h6v6h-6zM82.7 82.7h6v6h-6zM97.0 82.7h6v6h-6zM111.3 82.7h6v6h-6zM125.6 82.7h6v6h-6zM139.9 82.7h6v6h-6zM154.1 82.7h6v6h-6zM168.4 82.7h6v6h-6zM182.7 82.7h6v6h-6zM197.0 82.7h6v6h-6zM211.3 82.7h6v6h-6zM225.6 82.7h6v6h-6zM239.9 82.7h6v6h-6zM254.1 82.7h6v6h-6zM268.4 82.7h6v6h-6zM282.7 82.7h6v6h-6zM297.0 82.7h6v6h-6zM311.3 82.7h6v6h-6zM325.6 82.7h6v6h-6zM339.9 82.7h6v6h-6zM354.1 82.7h6v6h-6zM368.4 82.7h6v6h-6zM382.7 82.7h6v6h-6zM397.0 82.7h6v6h-6zM411.3 82.7h6v6h-6zM425.6 82.7h6v6h-6zM439.9 82.7h6v6h-6zM454.1 82.7h6v6h-6zM468.4 82.7h6v6h-6zM482.7 82.7h6v6h-6zM497.0 82.7h6v6h-6zM511.3 82.7h6v6h-6zM525.6 82.7h6v6h-6zM539.9 82.7h6v6h-6zM554.1 82.7h6v6h-6zM568.4 82.7h6v6h-6zM582.7 82.7h6v6h-6zM597.0 82.7h6v6h-6zM897.0 82.7h6v6h-6zM911.3 82.7h6v6h-6zM939.9 82.7h6v6h-6zM954.1 82.7h6v6h-6zM968.4 82.7h6v6h-6zM982.7 82.7h6v6h-6zM54.1 97.0h6v6h-6zM68.4 97.0h6v6h-6zM82.7 97.0h6v6h-6zM97.0 97.0h6v6h-6zM111.3 97.0h6v6h-6zM125.6 97.0h6v6h-6zM139.9 97.0h6v6h-6zM154.1 97.0h6v6h-6zM168.4 97.0h6v6h-6zM182.7 97.0h6v6h-6zM197.0 97.0h6v6h-6zM211.3 97.0h6v6h-6zM225.6 97.0h6v6h-6zM239.9 97.0h6v6h-6zM254.1 97.0h6v6h-6zM268.4 97.0h6v6h-6zM282.7 97.0h6v6h-6zM297.0 97.0h6v6h-6zM311.3 97.0h6v6h-6zM325.6 97.0h6v6h-6zM339.9 97.0h6v6h-6zM354.1 97.0h6v6h-6zM368.4 97.0h6v6h-6zM382.7 97.0h6v6h-6zM397.0 97.0h6v6h-6zM411.3 97.0h6v6h-6zM425.6 97.0h6v6h-6zM439.9 97.0h6v6h-6zM454.1 97.0h6v6h-6zM468.4 97.0h6v6h-6zM482.7 97.0h6v6h-6zM497.0 97.0h6v6h-6zM511.3 97.0h6v6h-6zM525.6 97.0h6v6h-6zM539.9 97.0h6v6h-6zM554.1 97.0h6v6h-6zM568.4 97.0h6v6h-6zM582.7 97.0h6v6h-6zM597.0 97.0h6v6h-6zM611.3 97.0h6v6h-6zM897.0 97.0h6v6h-6zM911.3 97.0h6v6h-6zM925.6 97.0h6v6h-6zM939.9 97.0h6v6h-6zM954.1 97.0h6v6h-6zM968.4 97.0h6v6h-6zM982.7 97.0h6v6h-6zM39.9 111.3h6v6h-6zM54.1 111.3h6v6h-6zM68.4 111.3h6v6h-6zM82.7 111.3h6v6h-6zM97.0 111.3h6v6h-6zM111.3 111.3h6v6h-6zM125.6 111.3h6v6h-6zM139.9 111.3h6v6h-6zM154.1 111.3h6v6h-6zM168.4 111.3h6v6h-6zM182.7 111.3h6v6h-6zM197.0 111.3h6v6h-6zM211.3 111.3h6v6h-6zM225.6 111.3h6v6h-6zM239.9 111.3h6v6h-6zM254.1 111.3h6v6h-6zM268.4 111.3h6v6h-6zM282.7 111.3h6v6h-6zM297.0 111.3h6v6h-6zM311.3 111.3h6v6h-6zM325.6 111.3h6v6h-6zM339.9 111.3h6v6h-6zM354.1 111.3h6v6h-6zM368.4 111.3h6v6h-6zM382.7 111.3h6v6h-6zM397.0 111.3h6v6h-6zM411.3 111.3h6v6h-6zM425.6 111.3h6v6h-6zM439.9 111.3h6v6h-6zM454.1 111.3h6v6h-6zM468.4 111.3h6v6h-6zM482.7 111.3h6v6h-6zM497.0 111.3h6v6h-6zM511.3 111.3h6v6h-6zM525.6 111.3h6v6h-6zM539.9 111.3h6v6h-6zM554.1 111.3h6v6h-6zM568.4 111.3h6v6h-6zM582.7 111.3h6v6h-6zM597.0 111.3h6v6h-6zM625.6 111.3h6v6h-6zM639.9 111.3h6v6h-6zM654.1 111.3h6v6h-6zM668.4 111.3h6v6h-6zM682.7 111.3h6v6h-6zM697.0 111.3h6v6h-6zM897.0 111.3h6v6h-6zM911.3 111.3h6v6h-6zM925.6 111.3h6v6h-6zM939.9 111.3h6v6h-6zM954.1 111.3h6v6h-6zM39.9 125.6h6v6h-6zM54.1 125.6h6v6h-6zM68.4 125.6h6v6h-6zM82.7 125.6h6v6h-6zM97.0 125.6h6v6h-6zM111.3 125.6h6v6h-6zM125.6 125.6h6v6h-6zM139.9 125.6h6v6h-6zM154.1 125.6h6v6h-6zM168.4 125.6h6v6h-6zM182.7 125.6h6v6h-6zM197.0 125.6h6v6h-6zM211.3 125.6h6v6h-6zM225.6 125.6h6v6h-6zM239.9 125.6h6v6h-6zM254.1 125.6h6v6h-6zM268.4 125.6h6v6h-6zM282.7 125.6h6v6h-6zM297.0 125.6h6v6h-6zM311.3 125.6h6v6h-6zM325.6 125.6h6v6h-6zM339.9 125.6h6v6h-6zM354.1 125.6h6v6h-6zM368.4 125.6h6v6h-6zM382.7 125.6h6v6h-6zM397.0 125.6h6v6h-6zM411.3 125.6h6v6h-6zM425.6 125.6h6v6h-6zM439.9 125.6h6v6h-6zM454.1 125.6h6v6h-6zM468.4 125.6h6v6h-6zM482.7 125.6h6v6h-6zM497.0 125.6h6v6h-6zM511.3 125.6h6v6h-6zM525.6 125.6h6v6h-6zM539.9 125.6h6v6h-6zM554.1 125.6h6v6h-6zM568.4 125.6h6v6h-6zM582.7 125.6h6v6h-6zM597.0 125.6h6v6h-6zM611.3 125.6h6v6h-6zM625.6 125.6h6v6h-6zM639.9 125.6h6v6h-6zM654.1 125.6h6v6h-6zM668.4 125.6h6v6h-6zM697.0 125.6h6v6h-6zM854.1 125.6h6v6h-6zM868.4 125.6h6v6h-6zM882.7 125.6h6v6h-6zM897.0 125.6h6v6h-6zM911.3 125.6h6v6h-6zM925.6 125.6h6v6h-6zM939.9 125.6h6v6h-6zM39.9 139.9h6v6h-6zM54.1 139.9h6v6h-6zM68.4 139.9h6v6h-6zM82.7 139.9h6v6h-6zM97.0 139.9h6v6h-6zM111.3 139.9h6v6h-6zM125.6 139.9h6v6h-6zM139.9 139.9h6v6h-6zM154.1 139.9h6v6h-6zM168.4 139.9h6v6h-6zM182.7 139.9h6v6h-6zM197.0 139.9h6v6h-6zM211.3 139.9h6v6h-6zM225.6 139.9h6v6h-6zM239.9 139.9h6v6h-6zM254.1 139.9h6v6h-6zM268.4 139.9h6v6h-6zM282.7 139.9h6v6h-6zM297.0 139.9h6v6h-6zM311.3 139.9h6v6h-6zM325.6 139.9h6v6h-6zM339.9 139.9h6v6h-6zM354.1 139.9h6v6h-6zM368.4 139.9h6v6h-6zM382.7 139.9h6v6h-6zM397.0 139.9h6v6h-6zM411.3 139.9h6v6h-6zM425.6 139.9h6v6h-6zM439.9 139.9h6v6h-6zM454.1 139.9h6v6h-6zM468.4 139.9h6v6h-6zM482.7 139.9h6v6h-6zM497.0 139.9h6v6h-6zM511.3 139.9h6v6h-6zM525.6 139.9h6v6h-6zM539.9 139.9h6v6h-6zM554.1 139.9h6v6h-6zM568.4 139.9h6v6h-6zM582.7 139.9h6v6h-6zM597.0 139.9h6v6h-6zM611.3 139.9h6v6h-6zM625.6 139.9h6v6h-6zM639.9 139.9h6v6h-6zM654.1 139.9h6v6h-6zM697.0 139.9h6v6h-6zM711.3 139.9h6v6h-6zM854.1 139.9h6v6h-6zM868.4 139.9h6v6h-6zM882.7 139.9h6v6h-6zM897.0 139.9h6v6h-6zM911.3 139.9h6v6h-6zM925.6 139.9h6v6h-6zM939.9 139.9h6v6h-6zM25.6 154.1h6v6h-6zM39.9 154.1h6v6h-6zM54.1 154.1h6v6h-6zM68.4 154.1h6v6h-6zM82.7 154.1h6v6h-6zM97.0 154.1h6v6h-6zM111.3 154.1h6v6h-6zM125.6 154.1h6v6h-6zM139.9 154.1h6v6h-6zM154.1 154.1h6v6h-6zM168.4 154.1h6v6h-6zM182.7 154.1h6v6h-6zM197.0 154.1h6v6h-6zM211.3 154.1h6v6h-6zM225.6 154.1h6v6h-6zM239.9 154.1h6v6h-6zM254.1 154.1h6v6h-6zM268.4 154.1h6v6h-6zM282.7 154.1h6v6h-6zM297.0 154.1h6v6h-6zM311.3 154.1h6v6h-6zM325.6 154.1h6v6h-6zM339.9 154.1h6v6h-6zM354.1 154.1h6v6h-6zM368.4 154.1h6v6h-6zM382.7 154.1h6v6h-6zM397.0 154.1h6v6h-6zM411.3 154.1h6v6h-6zM425.6 154.1h6v6h-6zM439.9 154.1h6v6h-6zM454.1 154.1h6v6h-6zM468.4 154.1h6v6h-6zM482.7 154.1h6v6h-6zM497.0 154.1h6v6h-6zM511.3 154.1h6v6h-6zM525.6 154.1h6v6h-6zM539.9 154.1h6v6h-6zM554.1 154.1h6v6h-6zM568.4 154.1h6v6h-6zM582.7 154.1h6v6h-6zM597.0 154.1h6v6h-6zM611.3 154.1h6v6h-6zM625.6 154.1h6v6h-6zM639.9 154.1h6v6h-6zM654.1 154.1h6v6h-6zM682.7 154.1h6v6h-6zM697.0 154.1h6v6h-6zM711.3 154.1h6v6h-6zM854.1 154.1h6v6h-6zM868.4 154.1h6v6h-6zM882.7 154.1h6v6h-6zM897.0 154.1h6v6h-6zM911.3 154.1h6v6h-6zM925.6 154.1h6v6h-6zM939.9 154.1h6v6h-6zM25.6 168.4h6v6h-6zM39.9 168.4h6v6h-6zM54.1 168.4h6v6h-6zM68.4 168.4h6v6h-6zM82.7 168.4h6v6h-6zM97.0 168.4h6v6h-6zM111.3 168.4h6v6h-6zM125.6 168.4h6v6h-6zM139.9 168.4h6v6h-6zM154.1 168.4h6v6h-6zM168.4 168.4h6v6h-6zM182.7 168.4h6v6h-6zM197.0 168.4h6v6h-6zM211.3 168.4h6v6h-6zM225.6 168.4h6v6h-6zM239.9 168.4h6v6h-6zM254.1 168.4h6v6h-6zM268.4 168.4h6v6h-6zM282.7 168.4h6v6h-6zM297.0 168.4h6v6h-6zM311.3 168.4h6v6h-6zM325.6 168.4h6v6h-6zM339.9 168.4h6v6h-6zM354.1 168.4h6v6h-6zM368.4 168.4h6v6h-6zM382.7 168.4h6v6h-6zM397.0 168.4h6v6h-6zM411.3 168.4h6v6h-6zM425.6 168.4h6v6h-6zM439.9 168.4h6v6h-6zM454.1 168.4h6v6h-6zM468.4 168.4h6v6h-6zM482.7 168.4h6v6h-6zM497.0 168.4h6v6h-6zM511.3 168.4h6v6h-6zM525.6 168.4h6v6h-6zM539.9 168.4h6v6h-6zM554.1 168.4h6v6h-6zM568.4 168.4h6v6h-6zM582.7 168.4h6v6h-6zM597.0 168.4h6v6h-6zM611.3 168.4h6v6h-6zM625.6 168.4h6v6h-6zM639.9 168.4h6v6h-6zM682.7 168.4h6v6h-6zM697.0 168.4h6v6h-6zM711.3 168.4h6v6h-6zM725.6 168.4h6v6h-6zM739.9 168.4h6v6h-6zM811.3 168.4h6v6h-6zM825.6 168.4h6v6h-6zM839.9 168.4h6v6h-6zM854.1 168.4h6v6h-6zM868.4 168.4h6v6h-6zM882.7 168.4h6v6h-6zM897.0 168.4h6v6h-6zM911.3 168.4h6v6h-6zM925.6 168.4h6v6h-6zM939.9 168.4h6v6h-6zM25.6 182.7h6v6h-6zM39.9 182.7h6v6h-6zM54.1 182.7h6v6h-6zM68.4 182.7h6v6h-6zM82.7 182.7h6v6h-6zM97.0 182.7h6v6h-6zM111.3 182.7h6v6h-6zM125.6 182.7h6v6h-6zM139.9 182.7h6v6h-6zM154.1 182.7h6v6h-6zM168.4 182.7h6v6h-6zM182.7 182.7h6v6h-6zM197.0 182.7h6v6h-6zM211.3 182.7h6v6h-6zM225.6 182.7h6v6h-6zM239.9 182.7h6v6h-6zM254.1 182.7h6v6h-6zM268.4 182.7h6v6h-6zM282.7 182.7h6v6h-6zM297.0 182.7h6v6h-6zM311.3 182.7h6v6h-6zM325.6 182.7h6v6h-6zM339.9 182.7h6v6h-6zM354.1 182.7h6v6h-6zM368.4 182.7h6v6h-6zM382.7 182.7h6v6h-6zM397.0 182.7h6v6h-6zM411.3 182.7h6v6h-6zM425.6 182.7h6v6h-6zM439.9 182.7h6v6h-6zM454.1 182.7h6v6h-6zM468.4 182.7h6v6h-6zM482.7 182.7h6v6h-6zM497.0 182.7h6v6h-6zM511.3 182.7h6v6h-6zM525.6 182.7h6v6h-6zM539.9 182.7h6v6h-6zM554.1 182.7h6v6h-6zM568.4 182.7h6v6h-6zM582.7 182.7h6v6h-6zM597.0 182.7h6v6h-6zM611.3 182.7h6v6h-6zM625.6 182.7h6v6h-6zM639.9 182.7h6v6h-6zM682.7 182.7h6v6h-6zM697.0 182.7h6v6h-6zM711.3 182.7h6v6h-6zM725.6 182.7h6v6h-6zM739.9 182.7h6v6h-6zM811.3 182.7h6v6h-6zM825.6 182.7h6v6h-6zM854.1 182.7h6v6h-6zM868.4 182.7h6v6h-6zM882.7 182.7h6v6h-6zM897.0 182.7h6v6h-6zM911.3 182.7h6v6h-6zM925.6 182.7h6v6h-6zM939.9 182.7h6v6h-6zM25.6 197.0h6v6h-6zM39.9 197.0h6v6h-6zM54.1 197.0h6v6h-6zM68.4 197.0h6v6h-6zM82.7 197.0h6v6h-6zM97.0 197.0h6v6h-6zM111.3 197.0h6v6h-6zM125.6 197.0h6v6h-6zM139.9 197.0h6v6h-6zM154.1 197.0h6v6h-6zM168.4 197.0h6v6h-6zM182.7 197.0h6v6h-6zM197.0 197.0h6v6h-6zM211.3 197.0h6v6h-6zM225.6 197.0h6v6h-6zM239.9 197.0h6v6h-6zM254.1 197.0h6v6h-6zM268.4 197.0h6v6h-6zM282.7 197.0h6v6h-6zM297.0 197.0h6v6h-6zM311.3 197.0h6v6h-6zM325.6 197.0h6v6h-6zM339.9 197.0h6v6h-6zM354.1 197.0h6v6h-6zM368.4 197.0h6v6h-6zM382.7 197.0h6v6h-6zM397.0 197.0h6v6h-6zM411.3 197.0h6v6h-6zM425.6 197.0h6v6h-6zM439.9 197.0h6v6h-6zM454.1 197.0h6v6h-6zM468.4 197.0h6v6h-6zM482.7 197.0h6v6h-6zM497.0 197.0h6v6h-6zM511.3 197.0h6v6h-6zM525.6 197.0h6v6h-6zM539.9 197.0h6v6h-6zM554.1 197.0h6v6h-6zM568.4 197.0h6v6h-6zM582.7 197.0h6v6h-6zM597.0 197.0h6v6h-6zM611.3 197.0h6v6h-6zM625.6 197.0h6v6h-6zM639.9 197.0h6v6h-6zM682.7 197.0h6v6h-6zM697.0 197.0h6v6h-6zM711.3 197.0h6v6h-6zM725.6 197.0h6v6h-6zM739.9 197.0h6v6h-6zM754.1 197.0h6v6h-6zM797.0 197.0h6v6h-6zM811.3 197.0h6v6h-6zM825.6 197.0h6v6h-6zM839.9 197.0h6v6h-6zM854.1 197.0h6v6h-6zM868.4 197.0h6v6h-6zM882.7 197.0h6v6h-6zM897.0 197.0h6v6h-6zM911.3 197.0h6v6h-6zM925.6 197.0h6v6h-6zM25.6 211.3h6v6h-6zM39.9 211.3h6v6h-6zM54.1 211.3h6v6h-6zM68.4 211.3h6v6h-6zM82.7 211.3h6v6h-6zM97.0 211.3h6v6h-6zM111.3 211.3h6v6h-6zM125.6 211.3h6v6h-6zM139.9 211.3h6v6h-6zM154.1 211.3h6v6h-6zM168.4 211.3h6v6h-6zM182.7 211.3h6v6h-6zM197.0 211.3h6v6h-6zM211.3 211.3h6v6h-6zM225.6 211.3h6v6h-6zM239.9 211.3h6v6h-6zM254.1 211.3h6v6h-6zM268.4 211.3h6v6h-6zM282.7 211.3h6v6h-6zM297.0 211.3h6v6h-6zM311.3 211.3h6v6h-6zM325.6 211.3h6v6h-6zM339.9 211.3h6v6h-6zM354.1 211.3h6v6h-6zM368.4 211.3h6v6h-6zM382.7 211.3h6v6h-6zM397.0 211.3h6v6h-6zM411.3 211.3h6v6h-6zM425.6 211.3h6v6h-6zM439.9 211.3h6v6h-6zM454.1 211.3h6v6h-6zM468.4 211.3h6v6h-6zM482.7 211.3h6v6h-6zM497.0 211.3h6v6h-6zM511.3 211.3h6v6h-6zM525.6 211.3h6v6h-6zM539.9 211.3h6v6h-6zM554.1 211.3h6v6h-6zM568.4 211.3h6v6h-6zM582.7 211.3h6v6h-6zM597.0 211.3h6v6h-6zM611.3 211.3h6v6h-6zM625.6 211.3h6v6h-6zM639.9 211.3h6v6h-6zM654.1 211.3h6v6h-6zM682.7 211.3h6v6h-6zM697.0 211.3h6v6h-6zM711.3 211.3h6v6h-6zM725.6 211.3h6v6h-6zM739.9 211.3h6v6h-6zM754.1 211.3h6v6h-6zM768.4 211.3h6v6h-6zM782.7 211.3h6v6h-6zM797.0 211.3h6v6h-6zM811.3 211.3h6v6h-6zM825.6 211.3h6v6h-6zM839.9 211.3h6v6h-6zM854.1 211.3h6v6h-6zM868.4 211.3h6v6h-6zM882.7 211.3h6v6h-6zM897.0 211.3h6v6h-6zM25.6 225.6h6v6h-6zM39.9 225.6h6v6h-6zM54.1 225.6h6v6h-6zM68.4 225.6h6v6h-6zM82.7 225.6h6v6h-6zM97.0 225.6h6v6h-6zM111.3 225.6h6v6h-6zM125.6 225.6h6v6h-6zM139.9 225.6h6v6h-6zM154.1 225.6h6v6h-6zM168.4 225.6h6v6h-6zM182.7 225.6h6v6h-6zM197.0 225.6h6v6h-6zM211.3 225.6h6v6h-6zM225.6 225.6h6v6h-6zM239.9 225.6h6v6h-6zM254.1 225.6h6v6h-6zM268.4 225.6h6v6h-6zM282.7 225.6h6v6h-6zM297.0 225.6h6v6h-6zM311.3 225.6h6v6h-6zM325.6 225.6h6v6h-6zM354.1 225.6h6v6h-6zM368.4 225.6h6v6h-6zM382.7 225.6h6v6h-6zM397.0 225.6h6v6h-6zM411.3 225.6h6v6h-6zM425.6 225.6h6v6h-6zM439.9 225.6h6v6h-6zM454.1 225.6h6v6h-6zM468.4 225.6h6v6h-6zM482.7 225.6h6v6h-6zM497.0 225.6h6v6h-6zM511.3 225.6h6v6h-6zM525.6 225.6h6v6h-6zM539.9 225.6h6v6h-6zM554.1 225.6h6v6h-6zM568.4 225.6h6v6h-6zM582.7 225.6h6v6h-6zM597.0 225.6h6v6h-6zM611.3 225.6h6v6h-6zM625.6 225.6h6v6h-6zM639.9 225.6h6v6h-6zM654.1 225.6h6v6h-6zM668.4 225.6h6v6h-6zM682.7 225.6h6v6h-6zM697.0 225.6h6v6h-6zM711.3 225.6h6v6h-6zM725.6 225.6h6v6h-6zM739.9 225.6h6v6h-6zM754.1 225.6h6v6h-6zM768.4 225.6h6v6h-6zM782.7 225.6h6v6h-6zM797.0 225.6h6v6h-6zM811.3 225.6h6v6h-6zM825.6 225.6h6v6h-6zM839.9 225.6h6v6h-6zM854.1 225.6h6v6h-6zM868.4 225.6h6v6h-6zM882.7 225.6h6v6h-6zM897.0 225.6h6v6h-6zM39.9 239.9h6v6h-6zM54.1 239.9h6v6h-6zM68.4 239.9h6v6h-6zM82.7 239.9h6v6h-6zM97.0 239.9h6v6h-6zM111.3 239.9h6v6h-6zM125.6 239.9h6v6h-6zM139.9 239.9h6v6h-6zM154.1 239.9h6v6h-6zM168.4 239.9h6v6h-6zM182.7 239.9h6v6h-6zM197.0 239.9h6v6h-6zM211.3 239.9h6v6h-6zM225.6 239.9h6v6h-6zM239.9 239.9h6v6h-6zM254.1 239.9h6v6h-6zM268.4 239.9h6v6h-6zM282.7 239.9h6v6h-6zM297.0 239.9h6v6h-6zM311.3 239.9h6v6h-6zM325.6 239.9h6v6h-6zM339.9 239.9h6v6h-6zM354.1 239.9h6v6h-6zM368.4 239.9h6v6h-6zM382.7 239.9h6v6h-6zM397.0 239.9h6v6h-6zM411.3 239.9h6v6h-6zM425.6 239.9h6v6h-6zM439.9 239.9h6v6h-6zM454.1 239.9h6v6h-6zM468.4 239.9h6v6h-6zM482.7 239.9h6v6h-6zM497.0 239.9h6v6h-6zM511.3 239.9h6v6h-6zM525.6 239.9h6v6h-6zM539.9 239.9h6v6h-6zM554.1 239.9h6v6h-6zM568.4 239.9h6v6h-6zM582.7 239.9h6v6h-6zM597.0 239.9h6v6h-6zM611.3 239.9h6v6h-6zM625.6 239.9h6v6h-6zM639.9 239.9h6v6h-6zM654.1 239.9h6v6h-6zM668.4 239.9h6v6h-6zM682.7 239.9h6v6h-6zM697.0 239.9h6v6h-6zM711.3 239.9h6v6h-6zM725.6 239.9h6v6h-6zM739.9 239.9h6v6h-6zM754.1 239.9h6v6h-6zM768.4 239.9h6v6h-6zM782.7 239.9h6v6h-6zM797.0 239.9h6v6h-6zM811.3 239.9h6v6h-6zM825.6 239.9h6v6h-6zM839.9 239.9h6v6h-6zM854.1 239.9h6v6h-6zM868.4 239.9h6v6h-6zM882.7 239.9h6v6h-6zM897.0 239.9h6v6h-6zM25.6 254.1h6v6h-6zM39.9 254.1h6v6h-6zM54.1 254.1h6v6h-6zM68.4 254.1h6v6h-6zM82.7 254.1h6v6h-6zM97.0 254.1h6v6h-6zM111.3 254.1h6v6h-6zM125.6 254.1h6v6h-6zM139.9 254.1h6v6h-6zM154.1 254.1h6v6h-6zM168.4 254.1h6v6h-6zM182.7 254.1h6v6h-6zM197.0 254.1h6v6h-6zM211.3 254.1h6v6h-6zM225.6 254.1h6v6h-6zM239.9 254.1h6v6h-6zM254.1 254.1h6v6h-6zM268.4 254.1h6v6h-6zM282.7 254.1h6v6h-6zM297.0 254.1h6v6h-6zM311.3 254.1h6v6h-6zM325.6 254.1h6v6h-6zM339.9 254.1h6v6h-6zM354.1 254.1h6v6h-6zM368.4 254.1h6v6h-6zM382.7 254.1h6v6h-6zM397.0 254.1h6v6h-6zM411.3 254.1h6v6h-6zM425.6 254.1h6v6h-6zM439.9 254.1h6v6h-6zM454.1 254.1h6v6h-6zM468.4 254.1h6v6h-6zM482.7 254.1h6v6h-6zM497.0 254.1h6v6h-6zM511.3 254.1h6v6h-6zM525.6 254.1h6v6h-6zM539.9 254.1h6v6h-6zM554.1 254.1h6v6h-6zM568.4 254.1h6v6h-6zM582.7 254.1h6v6h-6zM597.0 254.1h6v6h-6zM611.3 254.1h6v6h-6zM625.6 254.1h6v6h-6zM639.9 254.1h6v6h-6zM654.1 254.1h6v6h-6zM668.4 254.1h6v6h-6zM682.7 254.1h6v6h-6zM697.0 254.1h6v6h-6zM711.3 254.1h6v6h-6zM725.6 254.1h6v6h-6zM739.9 254.1h6v6h-6zM754.1 254.1h6v6h-6zM768.4 254.1h6v6h-6zM782.7 254.1h6v6h-6zM797.0 254.1h6v6h-6zM811.3 254.1h6v6h-6zM825.6 254.1h6v6h-6zM839.9 254.1h6v6h-6zM854.1 254.1h6v6h-6zM868.4 254.1h6v6h-6zM882.7 254.1h6v6h-6zM25.6 268.4h6v6h-6zM39.9 268.4h6v6h-6zM54.1 268.4h6v6h-6zM68.4 268.4h6v6h-6zM82.7 268.4h6v6h-6zM97.0 268.4h6v6h-6zM111.3 268.4h6v6h-6zM125.6 268.4h6v6h-6zM139.9 268.4h6v6h-6zM154.1 268.4h6v6h-6zM168.4 268.4h6v6h-6zM182.7 268.4h6v6h-6zM197.0 268.4h6v6h-6zM211.3 268.4h6v6h-6zM225.6 268.4h6v6h-6zM239.9 268.4h6v6h-6zM254.1 268.4h6v6h-6zM268.4 268.4h6v6h-6zM282.7 268.4h6v6h-6zM297.0 268.4h6v6h-6zM311.3 268.4h6v6h-6zM325.6 268.4h6v6h-6zM339.9 268.4h6v6h-6zM354.1 268.4h6v6h-6zM368.4 268.4h6v6h-6zM382.7 268.4h6v6h-6zM397.0 268.4h6v6h-6zM411.3 268.4h6v6h-6zM425.6 268.4h6v6h-6zM439.9 268.4h6v6h-6zM454.1 268.4h6v6h-6zM468.4 268.4h6v6h-6zM482.7 268.4h6v6h-6zM497.0 268.4h6v6h-6zM511.3 268.4h6v6h-6zM525.6 268.4h6v6h-6zM539.9 268.4h6v6h-6zM554.1 268.4h6v6h-6zM582.7 268.4h6v6h-6zM597.0 268.4h6v6h-6zM611.3 268.4h6v6h-6zM625.6 268.4h6v6h-6zM639.9 268.4h6v6h-6zM654.1 268.4h6v6h-6zM668.4 268.4h6v6h-6zM682.7 268.4h6v6h-6zM697.0 268.4h6v6h-6zM711.3 268.4h6v6h-6zM725.6 268.4h6v6h-6zM739.9 268.4h6v6h-6zM754.1 268.4h6v6h-6zM768.4 268.4h6v6h-6zM782.7 268.4h6v6h-6zM797.0 268.4h6v6h-6zM811.3 268.4h6v6h-6zM825.6 268.4h6v6h-6zM839.9 268.4h6v6h-6zM854.1 268.4h6v6h-6zM868.4 268.4h6v6h-6zM882.7 268.4h6v6h-6zM897.0 268.4h6v6h-6zM39.9 282.7h6v6h-6zM54.1 282.7h6v6h-6zM68.4 282.7h6v6h-6zM82.7 282.7h6v6h-6zM97.0 282.7h6v6h-6zM111.3 282.7h6v6h-6zM125.6 282.7h6v6h-6zM139.9 282.7h6v6h-6zM154.1 282.7h6v6h-6zM168.4 282.7h6v6h-6zM182.7 282.7h6v6h-6zM197.0 282.7h6v6h-6zM211.3 282.7h6v6h-6zM225.6 282.7h6v6h-6zM239.9 282.7h6v6h-6zM254.1 282.7h6v6h-6zM268.4 282.7h6v6h-6zM282.7 282.7h6v6h-6zM297.0 282.7h6v6h-6zM311.3 282.7h6v6h-6zM325.6 282.7h6v6h-6zM339.9 282.7h6v6h-6zM354.1 282.7h6v6h-6zM368.4 282.7h6v6h-6zM382.7 282.7h6v6h-6zM397.0 282.7h6v6h-6zM411.3 282.7h6v6h-6zM425.6 282.7h6v6h-6zM454.1 282.7h6v6h-6zM468.4 282.7h6v6h-6zM482.7 282.7h6v6h-6zM497.0 282.7h6v6h-6zM511.3 282.7h6v6h-6zM525.6 282.7h6v6h-6zM539.9 282.7h6v6h-6zM554.1 282.7h6v6h-6zM568.4 282.7h6v6h-6zM582.7 282.7h6v6h-6zM597.0 282.7h6v6h-6zM611.3 282.7h6v6h-6zM625.6 282.7h6v6h-6zM639.9 282.7h6v6h-6zM654.1 282.7h6v6h-6zM668.4 282.7h6v6h-6zM682.7 282.7h6v6h-6zM697.0 282.7h6v6h-6zM711.3 282.7h6v6h-6zM725.6 282.7h6v6h-6zM739.9 282.7h6v6h-6zM754.1 282.7h6v6h-6zM768.4 282.7h6v6h-6zM782.7 282.7h6v6h-6zM797.0 282.7h6v6h-6zM811.3 282.7h6v6h-6zM825.6 282.7h6v6h-6zM839.9 282.7h6v6h-6zM854.1 282.7h6v6h-6zM868.4 282.7h6v6h-6zM897.0 282.7h6v6h-6zM39.9 297.0h6v6h-6zM54.1 297.0h6v6h-6zM68.4 297.0h6v6h-6zM82.7 297.0h6v6h-6zM97.0 297.0h6v6h-6zM111.3 297.0h6v6h-6zM125.6 297.0h6v6h-6zM139.9 297.0h6v6h-6zM154.1 297.0h6v6h-6zM168.4 297.0h6v6h-6zM182.7 297.0h6v6h-6zM197.0 297.0h6v6h-6zM211.3 297.0h6v6h-6zM225.6 297.0h6v6h-6zM239.9 297.0h6v6h-6zM254.1 297.0h6v6h-6zM268.4 297.0h6v6h-6zM282.7 297.0h6v6h-6zM297.0 297.0h6v6h-6zM311.3 297.0h6v6h-6zM325.6 297.0h6v6h-6zM339.9 297.0h6v6h-6zM354.1 297.0h6v6h-6zM368.4 297.0h6v6h-6zM382.7 297.0h6v6h-6zM397.0 297.0h6v6h-6zM411.3 297.0h6v6h-6zM425.6 297.0h6v6h-6zM439.9 297.0h6v6h-6zM454.1 297.0h6v6h-6zM468.4 297.0h6v6h-6zM482.7 297.0h6v6h-6zM497.0 297.0h6v6h-6zM511.3 297.0h6v6h-6zM525.6 297.0h6v6h-6zM539.9 297.0h6v6h-6zM554.1 297.0h6v6h-6zM568.4 297.0h6v6h-6zM582.7 297.0h6v6h-6zM597.0 297.0h6v6h-6zM611.3 297.0h6v6h-6zM625.6 297.0h6v6h-6zM639.9 297.0h6v6h-6zM654.1 297.0h6v6h-6zM668.4 297.0h6v6h-6zM682.7 297.0h6v6h-6zM697.0 297.0h6v6h-6zM711.3 297.0h6v6h-6zM725.6 297.0h6v6h-6zM739.9 297.0h6v6h-6zM754.1 297.0h6v6h-6zM768.4 297.0h6v6h-6zM782.7 297.0h6v6h-6zM797.0 297.0h6v6h-6zM811.3 297.0h6v6h-6zM825.6 297.0h6v6h-6zM839.9 297.0h6v6h-6zM854.1 297.0h6v6h-6zM868.4 297.0h6v6h-6zM54.1 311.3h6v6h-6zM68.4 311.3h6v6h-6zM82.7 311.3h6v6h-6zM97.0 311.3h6v6h-6zM111.3 311.3h6v6h-6zM125.6 311.3h6v6h-6zM139.9 311.3h6v6h-6zM154.1 311.3h6v6h-6zM168.4 311.3h6v6h-6zM182.7 311.3h6v6h-6zM197.0 311.3h6v6h-6zM211.3 311.3h6v6h-6zM225.6 311.3h6v6h-6zM239.9 311.3h6v6h-6zM254.1 311.3h6v6h-6zM268.4 311.3h6v6h-6zM282.7 311.3h6v6h-6zM297.0 311.3h6v6h-6zM311.3 311.3h6v6h-6zM325.6 311.3h6v6h-6zM339.9 311.3h6v6h-6zM354.1 311.3h6v6h-6zM368.4 311.3h6v6h-6zM382.7 311.3h6v6h-6zM397.0 311.3h6v6h-6zM411.3 311.3h6v6h-6zM425.6 311.3h6v6h-6zM439.9 311.3h6v6h-6zM454.1 311.3h6v6h-6zM468.4 311.3h6v6h-6zM482.7 311.3h6v6h-6zM497.0 311.3h6v6h-6zM511.3 311.3h6v6h-6zM525.6 311.3h6v6h-6zM539.9 311.3h6v6h-6zM554.1 311.3h6v6h-6zM568.4 311.3h6v6h-6zM582.7 311.3h6v6h-6zM597.0 311.3h6v6h-6zM611.3 311.3h6v6h-6zM625.6 311.3h6v6h-6zM639.9 311.3h6v6h-6zM654.1 311.3h6v6h-6zM668.4 311.3h6v6h-6zM682.7 311.3h6v6h-6zM697.0 311.3h6v6h-6zM711.3 311.3h6v6h-6zM725.6 311.3h6v6h-6zM739.9 311.3h6v6h-6zM754.1 311.3h6v6h-6zM768.4 311.3h6v6h-6zM782.7 311.3h6v6h-6zM797.0 311.3h6v6h-6zM811.3 311.3h6v6h-6zM825.6 311.3h6v6h-6zM839.9 311.3h6v6h-6zM854.1 311.3h6v6h-6zM868.4 311.3h6v6h-6zM882.7 311.3h6v6h-6zM54.1 325.6h6v6h-6zM68.4 325.6h6v6h-6zM82.7 325.6h6v6h-6zM97.0 325.6h6v6h-6zM111.3 325.6h6v6h-6zM125.6 325.6h6v6h-6zM139.9 325.6h6v6h-6zM154.1 325.6h6v6h-6zM168.4 325.6h6v6h-6zM182.7 325.6h6v6h-6zM197.0 325.6h6v6h-6zM211.3 325.6h6v6h-6zM225.6 325.6h6v6h-6zM239.9 325.6h6v6h-6zM254.1 325.6h6v6h-6zM268.4 325.6h6v6h-6zM282.7 325.6h6v6h-6zM297.0 325.6h6v6h-6zM311.3 325.6h6v6h-6zM325.6 325.6h6v6h-6zM339.9 325.6h6v6h-6zM354.1 325.6h6v6h-6zM368.4 325.6h6v6h-6zM382.7 325.6h6v6h-6zM397.0 325.6h6v6h-6zM411.3 325.6h6v6h-6zM425.6 325.6h6v6h-6zM439.9 325.6h6v6h-6zM454.1 325.6h6v6h-6zM468.4 325.6h6v6h-6zM482.7 325.6h6v6h-6zM497.0 325.6h6v6h-6zM511.3 325.6h6v6h-6zM525.6 325.6h6v6h-6zM539.9 325.6h6v6h-6zM554.1 325.6h6v6h-6zM568.4 325.6h6v6h-6zM582.7 325.6h6v6h-6zM597.0 325.6h6v6h-6zM611.3 325.6h6v6h-6zM625.6 325.6h6v6h-6zM639.9 325.6h6v6h-6zM654.1 325.6h6v6h-6zM668.4 325.6h6v6h-6zM682.7 325.6h6v6h-6zM697.0 325.6h6v6h-6zM711.3 325.6h6v6h-6zM725.6 325.6h6v6h-6zM739.9 325.6h6v6h-6zM754.1 325.6h6v6h-6zM768.4 325.6h6v6h-6zM782.7 325.6h6v6h-6zM797.0 325.6h6v6h-6zM811.3 325.6h6v6h-6zM825.6 325.6h6v6h-6zM839.9 325.6h6v6h-6zM854.1 325.6h6v6h-6zM868.4 325.6h6v6h-6zM882.7 325.6h6v6h-6zM897.0 325.6h6v6h-6zM68.4 339.9h6v6h-6zM82.7 339.9h6v6h-6zM97.0 339.9h6v6h-6zM111.3 339.9h6v6h-6zM125.6 339.9h6v6h-6zM139.9 339.9h6v6h-6zM154.1 339.9h6v6h-6zM168.4 339.9h6v6h-6zM182.7 339.9h6v6h-6zM197.0 339.9h6v6h-6zM211.3 339.9h6v6h-6zM225.6 339.9h6v6h-6zM239.9 339.9h6v6h-6zM254.1 339.9h6v6h-6zM268.4 339.9h6v6h-6zM282.7 339.9h6v6h-6zM297.0 339.9h6v6h-6zM311.3 339.9h6v6h-6zM325.6 339.9h6v6h-6zM339.9 339.9h6v6h-6zM354.1 339.9h6v6h-6zM368.4 339.9h6v6h-6zM382.7 339.9h6v6h-6zM397.0 339.9h6v6h-6zM411.3 339.9h6v6h-6zM425.6 339.9h6v6h-6zM439.9 339.9h6v6h-6zM454.1 339.9h6v6h-6zM468.4 339.9h6v6h-6zM482.7 339.9h6v6h-6zM497.0 339.9h6v6h-6zM511.3 339.9h6v6h-6zM525.6 339.9h6v6h-6zM539.9 339.9h6v6h-6zM554.1 339.9h6v6h-6zM568.4 339.9h6v6h-6zM582.7 339.9h6v6h-6zM597.0 339.9h6v6h-6zM611.3 339.9h6v6h-6zM625.6 339.9h6v6h-6zM639.9 339.9h6v6h-6zM654.1 339.9h6v6h-6zM668.4 339.9h6v6h-6zM682.7 339.9h6v6h-6zM697.0 339.9h6v6h-6zM711.3 339.9h6v6h-6zM725.6 339.9h6v6h-6zM739.9 339.9h6v6h-6zM754.1 339.9h6v6h-6zM768.4 339.9h6v6h-6zM782.7 339.9h6v6h-6zM797.0 339.9h6v6h-6zM811.3 339.9h6v6h-6zM825.6 339.9h6v6h-6zM839.9 339.9h6v6h-6zM854.1 339.9h6v6h-6zM868.4 339.9h6v6h-6zM897.0 339.9h6v6h-6zM82.7 354.1h6v6h-6zM97.0 354.1h6v6h-6zM111.3 354.1h6v6h-6zM125.6 354.1h6v6h-6zM139.9 354.1h6v6h-6zM154.1 354.1h6v6h-6zM168.4 354.1h6v6h-6zM182.7 354.1h6v6h-6zM197.0 354.1h6v6h-6zM211.3 354.1h6v6h-6zM225.6 354.1h6v6h-6zM239.9 354.1h6v6h-6zM254.1 354.1h6v6h-6zM268.4 354.1h6v6h-6zM282.7 354.1h6v6h-6zM297.0 354.1h6v6h-6zM311.3 354.1h6v6h-6zM325.6 354.1h6v6h-6zM339.9 354.1h6v6h-6zM354.1 354.1h6v6h-6zM368.4 354.1h6v6h-6zM382.7 354.1h6v6h-6zM397.0 354.1h6v6h-6zM411.3 354.1h6v6h-6zM425.6 354.1h6v6h-6zM439.9 354.1h6v6h-6zM454.1 354.1h6v6h-6zM468.4 354.1h6v6h-6zM482.7 354.1h6v6h-6zM497.0 354.1h6v6h-6zM511.3 354.1h6v6h-6zM525.6 354.1h6v6h-6zM539.9 354.1h6v6h-6zM554.1 354.1h6v6h-6zM568.4 354.1h6v6h-6zM582.7 354.1h6v6h-6zM597.0 354.1h6v6h-6zM611.3 354.1h6v6h-6zM625.6 354.1h6v6h-6zM639.9 354.1h6v6h-6zM654.1 354.1h6v6h-6zM668.4 354.1h6v6h-6zM682.7 354.1h6v6h-6zM697.0 354.1h6v6h-6zM711.3 354.1h6v6h-6zM725.6 354.1h6v6h-6zM739.9 354.1h6v6h-6zM754.1 354.1h6v6h-6zM768.4 354.1h6v6h-6zM782.7 354.1h6v6h-6zM797.0 354.1h6v6h-6zM811.3 354.1h6v6h-6zM825.6 354.1h6v6h-6zM839.9 354.1h6v6h-6zM854.1 354.1h6v6h-6zM868.4 354.1h6v6h-6zM882.7 354.1h6v6h-6zM97.0 368.4h6v6h-6zM111.3 368.4h6v6h-6zM125.6 368.4h6v6h-6zM139.9 368.4h6v6h-6zM154.1 368.4h6v6h-6zM168.4 368.4h6v6h-6zM182.7 368.4h6v6h-6zM197.0 368.4h6v6h-6zM211.3 368.4h6v6h-6zM225.6 368.4h6v6h-6zM239.9 368.4h6v6h-6zM254.1 368.4h6v6h-6zM268.4 368.4h6v6h-6zM282.7 368.4h6v6h-6zM297.0 368.4h6v6h-6zM311.3 368.4h6v6h-6zM325.6 368.4h6v6h-6zM339.9 368.4h6v6h-6zM354.1 368.4h6v6h-6zM368.4 368.4h6v6h-6zM382.7 368.4h6v6h-6zM397.0 368.4h6v6h-6zM411.3 368.4h6v6h-6zM425.6 368.4h6v6h-6zM439.9 368.4h6v6h-6zM454.1 368.4h6v6h-6zM468.4 368.4h6v6h-6zM482.7 368.4h6v6h-6zM497.0 368.4h6v6h-6zM511.3 368.4h6v6h-6zM525.6 368.4h6v6h-6zM539.9 368.4h6v6h-6zM554.1 368.4h6v6h-6zM568.4 368.4h6v6h-6zM582.7 368.4h6v6h-6zM597.0 368.4h6v6h-6zM611.3 368.4h6v6h-6zM625.6 368.4h6v6h-6zM639.9 368.4h6v6h-6zM654.1 368.4h6v6h-6zM668.4 368.4h6v6h-6zM682.7 368.4h6v6h-6zM697.0 368.4h6v6h-6zM711.3 368.4h6v6h-6zM725.6 368.4h6v6h-6zM739.9 368.4h6v6h-6zM754.1 368.4h6v6h-6zM768.4 368.4h6v6h-6zM782.7 368.4h6v6h-6zM797.0 368.4h6v6h-6zM811.3 368.4h6v6h-6zM825.6 368.4h6v6h-6zM839.9 368.4h6v6h-6zM854.1 368.4h6v6h-6zM97.0 382.7h6v6h-6zM111.3 382.7h6v6h-6zM125.6 382.7h6v6h-6zM139.9 382.7h6v6h-6zM154.1 382.7h6v6h-6zM168.4 382.7h6v6h-6zM182.7 382.7h6v6h-6zM197.0 382.7h6v6h-6zM211.3 382.7h6v6h-6zM225.6 382.7h6v6h-6zM239.9 382.7h6v6h-6zM254.1 382.7h6v6h-6zM268.4 382.7h6v6h-6zM282.7 382.7h6v6h-6zM297.0 382.7h6v6h-6zM311.3 382.7h6v6h-6zM325.6 382.7h6v6h-6zM339.9 382.7h6v6h-6zM354.1 382.7h6v6h-6zM368.4 382.7h6v6h-6zM382.7 382.7h6v6h-6zM397.0 382.7h6v6h-6zM411.3 382.7h6v6h-6zM425.6 382.7h6v6h-6zM439.9 382.7h6v6h-6zM454.1 382.7h6v6h-6zM468.4 382.7h6v6h-6zM482.7 382.7h6v6h-6zM497.0 382.7h6v6h-6zM511.3 382.7h6v6h-6zM525.6 382.7h6v6h-6zM539.9 382.7h6v6h-6zM554.1 382.7h6v6h-6zM568.4 382.7h6v6h-6zM582.7 382.7h6v6h-6zM597.0 382.7h6v6h-6zM611.3 382.7h6v6h-6zM625.6 382.7h6v6h-6zM639.9 382.7h6v6h-6zM654.1 382.7h6v6h-6zM668.4 382.7h6v6h-6zM682.7 382.7h6v6h-6zM697.0 382.7h6v6h-6zM711.3 382.7h6v6h-6zM725.6 382.7h6v6h-6zM739.9 382.7h6v6h-6zM754.1 382.7h6v6h-6zM768.4 382.7h6v6h-6zM782.7 382.7h6v6h-6zM797.0 382.7h6v6h-6zM811.3 382.7h6v6h-6zM825.6 382.7h6v6h-6zM839.9 382.7h6v6h-6zM854.1 382.7h6v6h-6zM154.1 397.0h6v6h-6zM168.4 397.0h6v6h-6zM182.7 397.0h6v6h-6zM197.0 397.0h6v6h-6zM211.3 397.0h6v6h-6zM225.6 397.0h6v6h-6zM239.9 397.0h6v6h-6zM254.1 397.0h6v6h-6zM268.4 397.0h6v6h-6zM282.7 397.0h6v6h-6zM297.0 397.0h6v6h-6zM311.3 397.0h6v6h-6zM325.6 397.0h6v6h-6zM339.9 397.0h6v6h-6zM354.1 397.0h6v6h-6zM368.4 397.0h6v6h-6zM382.7 397.0h6v6h-6zM397.0 397.0h6v6h-6zM411.3 397.0h6v6h-6zM425.6 397.0h6v6h-6zM439.9 397.0h6v6h-6zM454.1 397.0h6v6h-6zM468.4 397.0h6v6h-6zM482.7 397.0h6v6h-6zM497.0 397.0h6v6h-6zM511.3 397.0h6v6h-6zM525.6 397.0h6v6h-6zM539.9 397.0h6v6h-6zM554.1 397.0h6v6h-6zM568.4 397.0h6v6h-6zM582.7 397.0h6v6h-6zM597.0 397.0h6v6h-6zM611.3 397.0h6v6h-6zM625.6 397.0h6v6h-6zM639.9 397.0h6v6h-6zM654.1 397.0h6v6h-6zM668.4 397.0h6v6h-6zM682.7 397.0h6v6h-6zM697.0 397.0h6v6h-6zM711.3 397.0h6v6h-6zM725.6 397.0h6v6h-6zM739.9 397.0h6v6h-6zM754.1 397.0h6v6h-6zM768.4 397.0h6v6h-6zM782.7 397.0h6v6h-6zM797.0 397.0h6v6h-6zM811.3 397.0h6v6h-6zM825.6 397.0h6v6h-6zM839.9 397.0h6v6h-6zM168.4 411.3h6v6h-6zM182.7 411.3h6v6h-6zM197.0 411.3h6v6h-6zM211.3 411.3h6v6h-6zM225.6 411.3h6v6h-6zM239.9 411.3h6v6h-6zM254.1 411.3h6v6h-6zM268.4 411.3h6v6h-6zM282.7 411.3h6v6h-6zM297.0 411.3h6v6h-6zM311.3 411.3h6v6h-6zM325.6 411.3h6v6h-6zM339.9 411.3h6v6h-6zM354.1 411.3h6v6h-6zM368.4 411.3h6v6h-6zM382.7 411.3h6v6h-6zM397.0 411.3h6v6h-6zM411.3 411.3h6v6h-6zM439.9 411.3h6v6h-6zM454.1 411.3h6v6h-6zM468.4 411.3h6v6h-6zM482.7 411.3h6v6h-6zM497.0 411.3h6v6h-6zM511.3 411.3h6v6h-6zM525.6 411.3h6v6h-6zM539.9 411.3h6v6h-6zM554.1 411.3h6v6h-6zM568.4 411.3h6v6h-6zM582.7 411.3h6v6h-6zM597.0 411.3h6v6h-6zM611.3 411.3h6v6h-6zM625.6 411.3h6v6h-6zM639.9 411.3h6v6h-6zM654.1 411.3h6v6h-6zM668.4 411.3h6v6h-6zM682.7 411.3h6v6h-6zM697.0 411.3h6v6h-6zM711.3 411.3h6v6h-6zM725.6 411.3h6v6h-6zM739.9 411.3h6v6h-6zM754.1 411.3h6v6h-6zM768.4 411.3h6v6h-6zM782.7 411.3h6v6h-6zM797.0 411.3h6v6h-6zM811.3 411.3h6v6h-6zM825.6 411.3h6v6h-6zM197.0 425.6h6v6h-6zM211.3 425.6h6v6h-6zM225.6 425.6h6v6h-6zM239.9 425.6h6v6h-6zM254.1 425.6h6v6h-6zM268.4 425.6h6v6h-6zM282.7 425.6h6v6h-6zM297.0 425.6h6v6h-6zM311.3 425.6h6v6h-6zM325.6 425.6h6v6h-6zM339.9 425.6h6v6h-6zM354.1 425.6h6v6h-6zM368.4 425.6h6v6h-6zM382.7 425.6h6v6h-6zM397.0 425.6h6v6h-6zM411.3 425.6h6v6h-6zM439.9 425.6h6v6h-6zM454.1 425.6h6v6h-6zM468.4 425.6h6v6h-6zM482.7 425.6h6v6h-6zM497.0 425.6h6v6h-6zM511.3 425.6h6v6h-6zM525.6 425.6h6v6h-6zM539.9 425.6h6v6h-6zM554.1 425.6h6v6h-6zM568.4 425.6h6v6h-6zM582.7 425.6h6v6h-6zM597.0 425.6h6v6h-6zM611.3 425.6h6v6h-6zM625.6 425.6h6v6h-6zM639.9 425.6h6v6h-6zM654.1 425.6h6v6h-6zM668.4 425.6h6v6h-6zM682.7 425.6h6v6h-6zM697.0 425.6h6v6h-6zM711.3 425.6h6v6h-6zM725.6 425.6h6v6h-6zM739.9 425.6h6v6h-6zM754.1 425.6h6v6h-6zM768.4 425.6h6v6h-6zM782.7 425.6h6v6h-6zM797.0 425.6h6v6h-6zM811.3 425.6h6v6h-6zM225.6 439.9h6v6h-6zM239.9 439.9h6v6h-6zM254.1 439.9h6v6h-6zM268.4 439.9h6v6h-6zM282.7 439.9h6v6h-6zM297.0 439.9h6v6h-6zM311.3 439.9h6v6h-6zM325.6 439.9h6v6h-6zM339.9 439.9h6v6h-6zM354.1 439.9h6v6h-6zM368.4 439.9h6v6h-6zM382.7 439.9h6v6h-6zM397.0 439.9h6v6h-6zM411.3 439.9h6v6h-6zM425.6 439.9h6v6h-6zM439.9 439.9h6v6h-6zM454.1 439.9h6v6h-6zM468.4 439.9h6v6h-6zM482.7 439.9h6v6h-6zM497.0 439.9h6v6h-6zM511.3 439.9h6v6h-6zM525.6 439.9h6v6h-6zM539.9 439.9h6v6h-6zM554.1 439.9h6v6h-6zM568.4 439.9h6v6h-6zM582.7 439.9h6v6h-6zM597.0 439.9h6v6h-6zM611.3 439.9h6v6h-6zM625.6 439.9h6v6h-6zM639.9 439.9h6v6h-6zM654.1 439.9h6v6h-6zM668.4 439.9h6v6h-6zM682.7 439.9h6v6h-6zM697.0 439.9h6v6h-6zM711.3 439.9h6v6h-6zM725.6 439.9h6v6h-6zM739.9 439.9h6v6h-6zM754.1 439.9h6v6h-6zM768.4 439.9h6v6h-6zM782.7 439.9h6v6h-6zM797.0 439.9h6v6h-6zM168.4 454.1h6v6h-6zM182.7 454.1h6v6h-6zM197.0 454.1h6v6h-6zM211.3 454.1h6v6h-6zM311.3 454.1h6v6h-6zM325.6 454.1h6v6h-6zM339.9 454.1h6v6h-6zM354.1 454.1h6v6h-6zM368.4 454.1h6v6h-6zM382.7 454.1h6v6h-6zM397.0 454.1h6v6h-6zM411.3 454.1h6v6h-6zM425.6 454.1h6v6h-6zM439.9 454.1h6v6h-6zM454.1 454.1h6v6h-6zM468.4 454.1h6v6h-6zM482.7 454.1h6v6h-6zM497.0 454.1h6v6h-6zM511.3 454.1h6v6h-6zM525.6 454.1h6v6h-6zM539.9 454.1h6v6h-6zM554.1 454.1h6v6h-6zM568.4 454.1h6v6h-6zM582.7 454.1h6v6h-6zM597.0 454.1h6v6h-6zM611.3 454.1h6v6h-6zM625.6 454.1h6v6h-6zM639.9 454.1h6v6h-6zM654.1 454.1h6v6h-6zM668.4 454.1h6v6h-6zM682.7 454.1h6v6h-6zM697.0 454.1h6v6h-6zM711.3 454.1h6v6h-6zM725.6 454.1h6v6h-6zM739.9 454.1h6v6h-6zM754.1 454.1h6v6h-6zM768.4 454.1h6v6h-6zM782.7 454.1h6v6h-6zM797.0 454.1h6v6h-6zM168.4 468.4h6v6h-6zM182.7 468.4h6v6h-6zM197.0 468.4h6v6h-6zM211.3 468.4h6v6h-6zM225.6 468.4h6v6h-6zM239.9 468.4h6v6h-6zM325.6 468.4h6v6h-6zM339.9 468.4h6v6h-6zM354.1 468.4h6v6h-6zM368.4 468.4h6v6h-6zM382.7 468.4h6v6h-6zM397.0 468.4h6v6h-6zM411.3 468.4h6v6h-6zM425.6 468.4h6v6h-6zM439.9 468.4h6v6h-6zM454.1 468.4h6v6h-6zM468.4 468.4h6v6h-6zM482.7 468.4h6v6h-6zM497.0 468.4h6v6h-6zM511.3 468.4h6v6h-6zM525.6 468.4h6v6h-6zM539.9 468.4h6v6h-6zM554.1 468.4h6v6h-6zM568.4 468.4h6v6h-6zM582.7 468.4h6v6h-6zM597.0 468.4h6v6h-6zM611.3 468.4h6v6h-6zM625.6 468.4h6v6h-6zM639.9 468.4h6v6h-6zM654.1 468.4h6v6h-6zM668.4 468.4h6v6h-6zM682.7 468.4h6v6h-6zM697.0 468.4h6v6h-6zM711.3 468.4h6v6h-6zM725.6 468.4h6v6h-6zM739.9 468.4h6v6h-6zM754.1 468.4h6v6h-6zM768.4 468.4h6v6h-6zM782.7 468.4h6v6h-6zM797.0 468.4h6v6h-6zM139.9 482.7h6v6h-6zM154.1 482.7h6v6h-6zM168.4 482.7h6v6h-6zM182.7 482.7h6v6h-6zM197.0 482.7h6v6h-6zM211.3 482.7h6v6h-6zM225.6 482.7h6v6h-6zM239.9 482.7h6v6h-6zM339.9 482.7h6v6h-6zM354.1 482.7h6v6h-6zM368.4 482.7h6v6h-6zM382.7 482.7h6v6h-6zM397.0 482.7h6v6h-6zM411.3 482.7h6v6h-6zM425.6 482.7h6v6h-6zM439.9 482.7h6v6h-6zM454.1 482.7h6v6h-6zM468.4 482.7h6v6h-6zM482.7 482.7h6v6h-6zM497.0 482.7h6v6h-6zM511.3 482.7h6v6h-6zM525.6 482.7h6v6h-6zM539.9 482.7h6v6h-6zM554.1 482.7h6v6h-6zM568.4 482.7h6v6h-6zM582.7 482.7h6v6h-6zM597.0 482.7h6v6h-6zM611.3 482.7h6v6h-6zM625.6 482.7h6v6h-6zM639.9 482.7h6v6h-6zM654.1 482.7h6v6h-6zM668.4 482.7h6v6h-6zM682.7 482.7h6v6h-6zM697.0 482.7h6v6h-6zM711.3 482.7h6v6h-6zM725.6 482.7h6v6h-6zM739.9 482.7h6v6h-6zM754.1 482.7h6v6h-6zM768.4 482.7h6v6h-6zM782.7 482.7h6v6h-6zM797.0 482.7h6v6h-6zM811.3 482.7h6v6h-6zM154.1 497.0h6v6h-6zM168.4 497.0h6v6h-6zM182.7 497.0h6v6h-6zM197.0 497.0h6v6h-6zM211.3 497.0h6v6h-6zM225.6 497.0h6v6h-6zM239.9 497.0h6v6h-6zM339.9 497.0h6v6h-6zM354.1 497.0h6v6h-6zM368.4 497.0h6v6h-6zM382.7 497.0h6v6h-6zM397.0 497.0h6v6h-6zM411.3 497.0h6v6h-6zM425.6 497.0h6v6h-6zM439.9 497.0h6v6h-6zM454.1 497.0h6v6h-6zM468.4 497.0h6v6h-6zM482.7 497.0h6v6h-6zM497.0 497.0h6v6h-6zM511.3 497.0h6v6h-6zM525.6 497.0h6v6h-6zM539.9 497.0h6v6h-6zM554.1 497.0h6v6h-6zM568.4 497.0h6v6h-6zM582.7 497.0h6v6h-6zM597.0 497.0h6v6h-6zM611.3 497.0h6v6h-6zM625.6 497.0h6v6h-6zM639.9 497.0h6v6h-6zM725.6 497.0h6v6h-6zM768.4 497.0h6v6h-6zM782.7 497.0h6v6h-6zM797.0 497.0h6v6h-6zM825.6 497.0h6v6h-6zM139.9 511.3h6v6h-6zM154.1 511.3h6v6h-6zM168.4 511.3h6v6h-6zM182.7 511.3h6v6h-6zM197.0 511.3h6v6h-6zM211.3 511.3h6v6h-6zM225.6 511.3h6v6h-6zM239.9 511.3h6v6h-6zM354.1 511.3h6v6h-6zM411.3 511.3h6v6h-6zM425.6 511.3h6v6h-6zM439.9 511.3h6v6h-6zM454.1 511.3h6v6h-6zM468.4 511.3h6v6h-6zM482.7 511.3h6v6h-6zM497.0 511.3h6v6h-6zM511.3 511.3h6v6h-6zM525.6 511.3h6v6h-6zM611.3 511.3h6v6h-6zM625.6 511.3h6v6h-6zM639.9 511.3h6v6h-6zM782.7 511.3h6v6h-6zM797.0 511.3h6v6h-6zM811.3 511.3h6v6h-6zM125.6 525.6h6v6h-6zM139.9 525.6h6v6h-6zM154.1 525.6h6v6h-6zM168.4 525.6h6v6h-6zM182.7 525.6h6v6h-6zM197.0 525.6h6v6h-6zM211.3 525.6h6v6h-6zM225.6 525.6h6v6h-6zM239.9 525.6h6v6h-6zM425.6 525.6h6v6h-6zM439.9 525.6h6v6h-6zM454.1 525.6h6v6h-6zM468.4 525.6h6v6h-6zM482.7 525.6h6v6h-6zM497.0 525.6h6v6h-6zM511.3 525.6h6v6h-6zM782.7 525.6h6v6h-6zM797.0 525.6h6v6h-6zM811.3 525.6h6v6h-6zM139.9 539.9h6v6h-6zM154.1 539.9h6v6h-6zM168.4 539.9h6v6h-6zM182.7 539.9h6v6h-6zM197.0 539.9h6v6h-6zM211.3 539.9h6v6h-6zM225.6 539.9h6v6h-6zM239.9 539.9h6v6h-6zM425.6 539.9h6v6h-6zM439.9 539.9h6v6h-6zM454.1 539.9h6v6h-6zM468.4 539.9h6v6h-6zM482.7 539.9h6v6h-6zM782.7 539.9h6v6h-6zM797.0 539.9h6v6h-6zM811.3 539.9h6v6h-6zM825.6 539.9h6v6h-6zM139.9 554.1h6v6h-6zM154.1 554.1h6v6h-6zM168.4 554.1h6v6h-6zM182.7 554.1h6v6h-6zM197.0 554.1h6v6h-6zM225.6 554.1h6v6h-6zM239.9 554.1h6v6h-6zM439.9 554.1h6v6h-6zM454.1 554.1h6v6h-6zM468.4 554.1h6v6h-6zM797.0 554.1h6v6h-6zM811.3 554.1h6v6h-6zM825.6 554.1h6v6h-6zM154.1 568.4h6v6h-6zM168.4 568.4h6v6h-6zM439.9 568.4h6v6h-6zM454.1 568.4h6v6h-6zM468.4 568.4h6v6h-6zM811.3 568.4h6v6h-6zM825.6 568.4h6v6h-6zM268.4 582.7h6v6h-6zM397.0 582.7h6v6h-6zM454.1 582.7h6v6h-6zM468.4 582.7h6v6h-6zM825.6 582.7h6v6h-6zM282.7 597.0h6v6h-6z"/></defs><use class="hm-dots" href="#usdots"/>
+                  <g class="hm-inset" aria-hidden="true">
+          <rect x="24" y="598" width="252" height="100" rx="14"/>
+          <path class="hm-dots" d="M84.0 608.0h5.0v5.0h-5.0zM94.5 608.0h5.0v5.0h-5.0zM105.0 608.0h5.0v5.0h-5.0zM115.5 608.0h5.0v5.0h-5.0zM126.0 608.0h5.0v5.0h-5.0zM136.5 608.0h5.0v5.0h-5.0zM63.0 618.5h5.0v5.0h-5.0zM73.5 618.5h5.0v5.0h-5.0zM84.0 618.5h5.0v5.0h-5.0zM94.5 618.5h5.0v5.0h-5.0zM105.0 618.5h5.0v5.0h-5.0zM115.5 618.5h5.0v5.0h-5.0zM126.0 618.5h5.0v5.0h-5.0zM136.5 618.5h5.0v5.0h-5.0zM147.0 618.5h5.0v5.0h-5.0zM52.5 629.0h5.0v5.0h-5.0zM63.0 629.0h5.0v5.0h-5.0zM73.5 629.0h5.0v5.0h-5.0zM84.0 629.0h5.0v5.0h-5.0zM94.5 629.0h5.0v5.0h-5.0zM105.0 629.0h5.0v5.0h-5.0zM115.5 629.0h5.0v5.0h-5.0zM126.0 629.0h5.0v5.0h-5.0zM136.5 629.0h5.0v5.0h-5.0zM147.0 629.0h5.0v5.0h-5.0zM42.0 639.5h5.0v5.0h-5.0zM52.5 639.5h5.0v5.0h-5.0zM63.0 639.5h5.0v5.0h-5.0zM73.5 639.5h5.0v5.0h-5.0zM84.0 639.5h5.0v5.0h-5.0zM94.5 639.5h5.0v5.0h-5.0zM105.0 639.5h5.0v5.0h-5.0zM115.5 639.5h5.0v5.0h-5.0zM126.0 639.5h5.0v5.0h-5.0zM136.5 639.5h5.0v5.0h-5.0zM147.0 639.5h5.0v5.0h-5.0zM42.0 650.0h5.0v5.0h-5.0zM52.5 650.0h5.0v5.0h-5.0zM73.5 650.0h5.0v5.0h-5.0zM84.0 650.0h5.0v5.0h-5.0zM94.5 650.0h5.0v5.0h-5.0zM105.0 650.0h5.0v5.0h-5.0zM115.5 650.0h5.0v5.0h-5.0zM126.0 650.0h5.0v5.0h-5.0zM136.5 650.0h5.0v5.0h-5.0zM147.0 650.0h5.0v5.0h-5.0zM157.5 650.0h5.0v5.0h-5.0zM94.5 660.5h5.0v5.0h-5.0zM105.0 660.5h5.0v5.0h-5.0zM115.5 660.5h5.0v5.0h-5.0zM126.0 660.5h5.0v5.0h-5.0zM136.5 660.5h5.0v5.0h-5.0zM147.0 660.5h5.0v5.0h-5.0zM73.5 671.0h5.0v5.0h-5.0zM84.0 671.0h5.0v5.0h-5.0zM94.5 671.0h5.0v5.0h-5.0zM105.0 671.0h5.0v5.0h-5.0zM52.5 681.5h5.0v5.0h-5.0zM63.0 681.5h5.0v5.0h-5.0z"/>
+          <text x="196" y="652">ALASKA</text>
+        </g>
+        <g id="hmPins">
+          <circle class="hm-pin" data-st="AK" cx="108" cy="632" r="7"/>
+          <circle class="hm-pin" data-st="CA" cx="200" cy="386" r="7"/>
+          <circle class="hm-pin" data-st="CO" cx="400" cy="243" r="7"/>
+          <circle class="hm-pin" data-st="SD" cx="429" cy="143" r="7"/>
+          <circle class="hm-pin" data-st="MI" cx="700" cy="114" r="7"/>
+          <circle class="hm-pin" data-st="TX" cx="557" cy="500" r="7"/>
+          <circle class="hm-pin" data-st="FL" cx="814" cy="514" r="7"/>
+          <circle class="hm-pin" data-st="SC" cx="786" cy="386" r="7"/>
+          <circle class="hm-pin" data-st="NC" cx="814" cy="357" r="7"/>
+          <circle class="hm-pin" data-st="VA" cx="829" cy="300" r="7"/>
+          <circle class="hm-pin" data-st="MD" cx="841" cy="273" r="7"/>
+          <circle class="hm-pin" data-st="DE" cx="846" cy="252" r="7"/>
+          <circle class="hm-pin" data-st="PA" cx="843" cy="214" r="7"/>
+          <circle class="hm-pin" data-st="NY" cx="871" cy="157" r="7"/>
+          <circle class="hm-pin" data-st="MA" cx="929" cy="186" r="7"/>
+          <circle class="hm-pin" data-st="ME" cx="943" cy="129" r="7"/>
+          </g>
+          <circle id="hmRing" class="hm-ring" cx="0" cy="0" r="8"/>
+        </svg>
+        <ul class="hm-states" id="hmStates">
+          <li data-st="AK"><i></i>Alaska</li>
+          <li data-st="CA"><i></i>California</li>
+          <li data-st="CO"><i></i>Colorado</li>
+          <li data-st="SD"><i></i>South Dakota</li>
+          <li data-st="MI"><i></i>Michigan</li>
+          <li data-st="TX"><i></i>Texas</li>
+          <li data-st="FL"><i></i>Florida</li>
+          <li data-st="SC"><i></i>South Carolina</li>
+          <li data-st="NC"><i></i>North Carolina</li>
+          <li data-st="VA"><i></i>Virginia</li>
+          <li data-st="MD"><i></i>Maryland</li>
+          <li data-st="DE"><i></i>Delaware</li>
+          <li data-st="PA"><i></i>Pennsylvania</li>
+          <li data-st="NY"><i></i>New York</li>
+          <li data-st="MA"><i></i>Massachusetts</li>
+          <li data-st="ME"><i></i>Maine</li>
+        </ul>
+        <p class="hm-note">Программа работает по всей стране — от Аляски до Флориды. Конкретный штат зависит от вакансии, которую вы выберете.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="boardwrap">
+  <div class="wrap board-in">
+    <div class="board-l"><i></i>Departures · сезон 2027</div>
+    <div class="fbd" id="fbd" aria-hidden="true"></div>
+  </div>
+</div>
+
+<!-- 01 О ПРОГРАММЕ -->
+
+<div class="evwrap" id="evwrap" hidden>
+  <div class="wrap">
+    <section class="event" id="event" aria-labelledby="ev-h">
+      <div class="ev-grid">
+        <div class="ev-date"><b>18</b><span>сентября</span></div>
+        <div class="ev-body">
+          <em>Открытая презентация · Алматы</em>
+          <h3 id="ev-h">Разбираем программу Work and Travel USA 2027</h3>
+          <div class="ev-meta">
+            <span><i>Когда</i> 18 сентября, пятница, 18:00</span>
+            <span><i>Где</i> Алматы: ул. Гагарина, 236Б · Астана: БЦ «Таймас», офис 301, ул. Бейбит Майлина, 19</span>
+          </div>
+          <p class="ev-note">Как устроена программа, вакансии и ставки сезона 2027, сроки и документы, ответы на ваши вопросы. Вход по записи, количество мест ограничено.</p>
+        </div>
+        <div class="ev-act">
+          <a class="btn btn-ev" id="evBtn" href="https://wa.me/77714064549" target="_blank" rel="noopener">Записаться на презентацию</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section class="stage" id="gate1" data-rail="1">
+  <div class="stub" aria-hidden="true"><b>STAGE 01 · ABOUT · WT-2027</b></div>
+  <div class="slam" aria-hidden="true">About<small>the programme</small></div>
+  <div class="wrap">
+    <div class="anim"><p class="pa"><i></i>Этап 01 · О программе</p></div>
+    <div class="anim"><h2>Что такое Work and Travel</h2></div>
+    <div class="anim"><p class="lead" style="margin-top:16px">Программа культурного обмена под управлением Госдепартамента США. Вы получаете визу J-1, летом легально работаете в сфере услуг — в парках, отелях, магазинах у океана, — живёте на свою зарплату в долларах, а после работы месяц ездите по стране.</p></div>
+
+    <div class="anim abt-two">
+      <div class="abt-left">
+      <div class="abt-art">
+        <p class="dropcap">Work &amp; Travel USA — государственная программа культурного обмена, созданная в 1961 году при поддержке Государственного департамента США. Она даёт студентам возможность легально работать в США во время летних каникул, совершенствовать английский язык, познакомиться с американской культурой и путешествовать по стране.</p>
+        <p>Участие оформляется по визе <b>J-1</b> — визе обмена. У вас есть аккредитованный американский спонсор, подтверждённый работодатель и сроки, привязанные к вашим каникулам. Два-три месяца вы работаете на сезонной позиции и получаете зарплату по американским правилам, а после контракта у вас остаётся ещё месяц, чтобы увидеть страну.</p>
+        <p>Работодатель заранее известен: вы видите позицию, ставку, город и условия проживания до того, как подписываете документы. Рабочая неделя обычно 32–40 часов, часто есть переработки — они оплачиваются по ставке ×1,5, а зарплата приходит на американский счёт каждые две недели — как у местных сотрудников.</p>
+        <p>Рядом с вами на одной смене работают студенты из десятков стран, поэтому английский становится рабочим языком, а не предметом. Именно поэтому за лето уровень обычно растёт заметнее, чем за год курсов.</p>
+        <p>Это не только работа. Это опыт самостоятельной жизни, новых знакомств и путешествий, который остаётся с вами надолго.</p>
+      </div>
+      </div>
+
+      <aside class="abt-side">
+        <div class="yearcard">
+          <span class="yc-lbl">Год основания</span>
+          <b class="yc-num">1961</b>
+          <p>Программа обмена действует под управлением Государственного департамента США и его аккредитованных спонсоров. Правила участия, сроки и требования к работодателям устанавливает государство, а не агентство.</p>
+        </div>
+        <ol class="numlist">
+          <li><i>01</i><span>Официальная виза <b>J-1</b> — виза культурного обмена</span></li>
+          <li><i>02</i><span>Легальное разрешение на работу в США на период каникул</span></li>
+          <li><i>03</i><span>Улучшение английского, международный опыт и путешествия по стране</span></li>
+        </ol>
+        <div class="ticket">
+          <div class="tk-air"><img src="images/globus-exchange-logo.png" alt="" loading="lazy" decoding="async"><b>Boarding pass</b><span>Season 2027</span></div>
+          <div class="stampmark">Season<br>2027<small>OPEN</small></div>
+          <div class="tk-body">
+            <div class="tk-main">
+              <div class="tk-grid">
+                <div><span>Route</span><b>KAZ → USA</b></div>
+                <div><span>Visa</span><b>J-1</b></div>
+                <div class="tk-hole" aria-hidden="true"></div>
+                <div><span>Departure</span><b>08 MAY</b></div>
+                <div><span>Return</span><b>01 SEP</b></div>
+                <div><span>Набор</span><b class="hot seatpill"><i></i>Открыт</b></div>
+              </div>
+              <div class="routebar" aria-hidden="true">
+              <svg viewBox="0 0 420 34" preserveAspectRatio="none">
+                <text class="rb-code" x="0" y="22">KAZ</text>
+                <path class="rb-line" d="M52 16 H366"/>
+                <circle class="rb-dot" cx="52" cy="16" r="4"/>
+                <circle class="rb-dot" cx="366" cy="16" r="4"/>
+                <g class="rb-plane"><path d="M0 -7L20 0L0 7L6 0Z"/></g>
+                <text class="rb-code" x="378" y="22">USA</text>
+              </svg>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="seatsbar">
+          <div class="sb-l">
+            <span class="sb-lbl"><i></i>Набор на сезон 2027 открыт</span>
+            <p>Оставьте заявку на сезон 2027</p>
+          </div>
+          <div class="sb-r"><b>Открыт</b><span>набор 2027</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="anim">
+      <div class="about4">
+        <div><b>50+</b><span>стран в программе — коллеги по смене будут со всего мира</span></div>
+        <div><b>$13–18</b><span>в час на большинстве позиций, зарплата приходит на американский счёт каждые две недели</span></div>
+        <div><b>8–10</b><span>недель работы, старт с 8 мая — подстраиваем под сессию</span></div>
+        <div><b>30</b><span>дней на путешествие после работы: от Гранд-Каньона до Нью-Йорка</span></div>
+      </div>
+    </div>
+    <div class="anim sprow">
+      <img class="spmark" src="images/globus-exchange-logo.png" alt="Globus Exchange Programs" loading="lazy" decoding="async">
+      <span class="sp-badge">Official sponsors</span>
+      <div class="splogos">
+        <button type="button" data-sp="ciee"><img src="images/ciee-logo.png" alt="CIEE" loading="lazy" decoding="async"><span>подробнее</span></button>
+        <button type="button" data-sp="aag"><img src="images/alliance-abroad-logo.png" alt="Alliance Abroad Group" loading="lazy" decoding="async"><span>подробнее</span></button>
+      </div>
+      <p>Спонсоры работают только через аккредитованные агентства. GLOBUS EXCHANGE официально представляет обоих — CIEE и Alliance Abroad.</p>
+    </div>
+
+    <div class="anim cta-row">
+      <a class="btn btn-1" href="#gate2">Смотреть вакансии →</a>
+      <a class="btn btn-2" href="#gate8">Записаться на консультацию</a>
+    </div>
+
+    <div class="anim whom" id="whom">
+      <div class="whom-head">
+        <em>Boarding requirements</em>
+        <h3>Критерии участия</h3>
+      </div>
+      <ul class="whom-list">
+        <li><i>01</i><span><b>Студенты бакалавриата</b> очной формы — кроме выпускного курса</span></li>
+        <li><i>02</i><span><b>От 18 до 22 лет</b> включительно</span></li>
+        <li><i>03</i><span>Английский <b>Intermediate и выше</b></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 02 СПОНСОРЫ -->
+<section class="stage" id="gate1s" data-rail="2">
+  <div class="stub" aria-hidden="true"><b>STAGE 02 · SPONSORS · J-1 DESIGNATED</b></div>
+  <div class="slam" aria-hidden="true">Sponsors<small>designated by U.S. Dept. of State</small></div>
+  <div class="wrap">
+    <div class="anim"><p class="pa"><i></i>Этап 02 · Спонсоры программы</p></div>
+    <div class="anim"><h2>Кто отвечает за вас в США</h2></div>
+    <div class="anim"><p class="lead" style="margin-top:16px">Спонсор — американская организация, назначенная Государственным департаментом США для программ обмена по визе J-1. Он выпускает форму DS-2019, с которой вы подаётесь на визу, оформляет медицинскую страховку на весь период программы и поддерживает вас в США круглосуточно, если возникнет экстренная ситуация. GLOBUS EXCHANGE работает с двумя спонсорами: CIEE и Alliance Abroad.</p></div>
+
+    <div class="anim spon-two">
+      <article class="sponcard">
+        <div class="sc-logo"><img src="images/ciee-logo.png" alt="CIEE" loading="lazy" decoding="async"></div>
+        <h3>CIEE</h3>
+        <p class="sc-sub">Council on International Educational Exchange</p>
+        <p>Основана в 1947 году, штаб-квартира — Портленд, штат Мэн. В 1969 году получила статус первого спонсора программы J-1 Summer Work Travel от Госдепартамента США — с неё и началась современная программа Summer Work Travel.</p>
+        <ul class="sc-facts">
+          <li><i></i>Статус спонсора J-1 с 1969 года</li>
+          <li><i></i>Один из крупнейших операторов программ обмена в США</li>
+        </ul>
+      </article>
+      <article class="sponcard">
+        <div class="sc-logo"><img src="images/alliance-abroad-logo.png" alt="Alliance Abroad Group" loading="lazy" decoding="async"></div>
+        <h3>Alliance Abroad</h3>
+        <p class="sc-sub">Alliance Abroad Group</p>
+        <p>Основана в 1989 году, штаб-квартира — Остин, штат Техас. Статус спонсора Summer Work Travel получила в 2002 году, работает с участниками более чем из десяти стран.</p>
+        <ul class="sc-facts">
+          <li><i></i>Статус спонсора J-1 с 2002 года</li>
+          <li><i></i>Региональные команды поддержки в США</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="anim spon-flow">
+      <article class="sf">
+        <span class="sf-n">01</span>
+        <h4>Что вообще делает спонсор</h4>
+        <p>Без спонсора участие в программе невозможно. Именно он оформляет форму DS-2019 — документ, с которым вы подаётесь на визу J-1, — и несёт ответственность за участника перед Государственным департаментом США на всё время программы.</p>
+      </article>
+      <article class="sf">
+        <span class="sf-n">02</span>
+        <h4>Проверка и безопасность</h4>
+        <p>Перед одобрением Job Offer американский спонсор проверяет работодателя и условия работы на соответствие правилам программы J-1. Если работодатель или вакансия не соответствуют требованиям, Job Offer не будет одобрен — именно это делает вашу работу в США официальной и безопасной.</p>
+      </article>
+      <article class="sf">
+        <span class="sf-n">03</span>
+        <h4>Что вы получаете от спонсора</h4>
+        <p>Форму DS-2019 для подачи на визу, медицинскую страховку на период программы, ориентацию перед началом работы и регулярный check-in — спонсор сам выходит на связь и спрашивает, как идут дела на месте.</p>
+      </article>
+      <article class="sf dark">
+        <span class="sf-n">04</span>
+        <h4>Поддержка в США — 24/7</h4>
+        <p>Если возникли вопросы с работодателем, жильём, оплатой или здоровьем — вы обращаетесь к спонсору напрямую. Круглосуточный номер экстренной связи указан в ваших документах — вы получаете его до вылета.</p>
+        <div class="sf-tag"><i></i>Emergency line · круглосуточно</div>
+      </article>
+    </div>
+
+    <div class="anim cta-row">
+      <a class="btn btn-1" href="#gate2">Как выглядит Job Offer →</a>
+      <a class="btn btn-2" href="#gate8">Задать вопрос координатору</a>
+    </div>
+  </div>
+</section>
+
+<!-- 03 СОПРОВОЖДЕНИЕ -->
+<section class="stage" id="gate1b" data-rail="2">
+  <div class="stub" aria-hidden="true"><b>STAGE 03 · SUPPORT · GLOBUS EXCHANGE</b></div>
+  <div class="slam" aria-hidden="true">Support<small>24/7 on the ground</small></div>
+  <div class="wrap">
+    <div class="anim"><p class="pa"><i></i>Этап 03 · Сопровождение</p></div>
+    <div class="anim"><h2>Вы проходите путь вместе с нами</h2></div>
+    <div class="anim"><p class="lead" style="margin-top:16px">В Казахстане координатор ведёт вас до получения визы — по обоим тарифам, Full и Self. В США поддержку оказывают организаторы программы: американские спонсоры с круглосуточной линией экстренной связи.</p></div>
+
+    <div class="anim crew">
+      <div class="crewcard">
+        <div class="cc-top"><svg class="cc-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg><em>Coordinator · KZ</em></div>
+        <h3>Координатор программы</h3>
+        <p>Сопровождает вас с первой консультации и до получения визы: объясняет этапы и сроки, подсказывает, что делать дальше на каждом шаге.</p>
+      </div>
+      <div class="crewcard">
+        <div class="cc-top"><svg class="cc-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><em>Documents</em></div>
+        <h3>Работа с документами</h3>
+        <p>Договор, анкеты, форма DS-2019 — проверяем комплект перед подачей, чтобы в бумагах не было ошибок и разночтений.</p>
+      </div>
+      <div class="crewcard">
+        <div class="cc-top"><svg class="cc-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="10" r="3"/><path d="M9 17h6"/></svg><em>Visa</em></div>
+        <h3>Подготовка к собеседованию</h3>
+        <p>DS-160, запись в посольство, разбор типовых вопросов и репетиции интервью. Решение по визе принимает посольство США.</p>
+      </div>
+      <div class="crewcard ground">
+        <div class="cc-top"><svg class="cc-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-2.9 7.7-7 9-4.1-1.3-7-4.6-7-9V6z"/><path d="M9.2 12.2l2 2 3.6-3.9"/></svg><em>On site · USA · 24/7</em></div>
+        <h3>Поддержка в США</h3>
+        <p>На месте поддержку оказывают организаторы программы — американские спонсоры CIEE и Alliance Abroad. Это страховка, регулярный check-in и круглосуточный номер экстренной связи, который вы получаете до вылета.</p>
+      </div>
+    </div>
+
+    <div class="anim tr-more">
+      <div class="tr-seal"><img src="images/globus-exchange-logo.png" alt="Globus Exchange Programs" loading="lazy" decoding="async"><span>GLOBUS EXCHANGE PROGRAMS<em>Leading Beyond Borders</em></span></div>
+      <div class="tr-facts mini">
+        <div><b>2</b><span>спонсора программы</span></div>
+        <div><b>90%</b><span>одобренных виз в 2026</span></div>
+        <div><b>Офисы</b><span>Алматы: Гагарина, 236Б · Астана: Бейбит Майлина, 19</span></div>
+      </div>
+      <div class="tr-act">
+        <a class="btn btn-ig" href="https://www.instagram.com/globus_exchange_/" target="_blank" rel="noopener"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.3"/><circle class="dot" cx="17.3" cy="6.7" r="1.35"/></svg>Instagram участников</a>
+        <a class="btn btn-1" href="#gate8">Записаться на консультацию</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ГЕЙТ A1 -->
+<section class="stage dark" id="gate2" data-rail="2">
+  <img class="usdeco statue" src="/wt2027/img/d764414d.png" alt="" aria-hidden="true">
+  <div class="stub" aria-hidden="true"><b>STAGE 04 · GATE A1 · LIFEGUARD</b></div>
+  <div class="slam" aria-hidden="true">Gate A1<small>boarding</small></div>
+  <div class="wrap">
+    <div class="gate-grid">
+      <div>
+        <div class="anim"><p class="pa"><i></i>Этап 04 · Gate A1 · посадка началась</p></div>
+        <div class="anim"><h2>Лайфгард — место,<br>которое разбирают первым</h2></div>
+        <div class="anim">
+          <div class="g-nums">
+            <div><b>$16.25</b><span>ставка в час</span></div>
+            <div><b>$24.38</b><span>овертайм после 40 часов</span></div>
+            <div><b>$500</b><span>бонус за полный сезон</span></div>
+          </div>
+        </div>
+        <div class="anim">
+          <ul class="g-why">
+            <li>Самый выгодный овертайм: на других позициях $19.50–22.50</li>
+            <li>Единственная вакансия с бонусом за работу до конца сезона</li>
+            <li>Вернувшимся на следующий год платят больше базовой ставки</li>
+            <li>Жильё $160 в неделю, депозит $200 — из них $150 возвращают при выезде</li>
+          </ul>
+          <a class="btn btn-1" href="#gate8">Забронировать место лайфгарда</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ВАКАНСИИ -->
+<section class="stage" id="gate3" data-rail="3">
+  <div class="stub" aria-hidden="true"><b>STAGE 05 · DEPARTURES BOARD</b></div>
+  <div class="slam" aria-hidden="true">Flights<small>departures board</small></div>
+  <div class="wrap">
+    <div class="anim"><p class="pa"><i></i>Этап 05 · Направления</p></div>
+    <div class="anim"><h2>Ещё вакансии сезона</h2></div>
+    <div class="anim"><p class="lead" style="margin-top:16px">Выберите рейс — вакансия сразу попадёт в расчёт заработка на следующем этапе.</p></div>
+
+    <div class="offercol">
+
+    <div class="anim">
+        <div class="offers">
+        <button type="button" class="ocard sel" data-j="0">
+          <div class="oc-head"><span>WT 115</span><em class="st">Boarding</em></div>
+          <div class="oc-role">Lifeguard / Pool Operator</div>
+          <div class="oc-loc">Maryland · бассейны и аквапарки</div>
+          <div class="oc-rows">
+            <div class="pay"><span>Wage</span><b>$16.25/hr</b></div>
+            <div><span>Overtime</span><b>$24.38/hr</b></div>
+            <div><span>Housing</span><b>$160/нед</b></div>
+            <div><span>Bonus</span><b>$500</b></div>
+          </div>
+          <div class="oc-foot">Sponsor: CIEE / Alliance Abroad<i>Job offer 2026</i></div>
+        </button>
+        <button type="button" class="ocard" data-j="1">
+          <div class="oc-head"><span>WT 240</span><em class="st">On time</em></div>
+          <div class="oc-role">Food Lion — Retail Associate</div>
+          <div class="oc-loc">Myrtle Beach · Surf Side · Atlantic Beach</div>
+          <div class="oc-rows">
+            <div class="pay"><span>Wage</span><b>$15.00/hr</b></div>
+            <div><span>States</span><b>SC / NC</b></div>
+            <div><span>Housing</span><b>$150/нед</b></div>
+            <div><span>English</span><b>уверенный</b></div>
+          </div>
+          <div class="oc-foot">Sponsor: CIEE / Alliance Abroad<i>Job offer 2026</i></div>
+        </button>
+        <button type="button" class="ocard" data-j="2">
+          <div class="oc-head"><span>WT 318</span><em class="st">On time</em></div>
+          <div class="oc-role">Ride Operator</div>
+          <div class="oc-loc">Парк развлечений · Средний Запад</div>
+          <div class="oc-rows">
+            <div class="pay"><span>Wage</span><b>$14.00/hr</b></div>
+            <div><span>Overtime</span><b>$21.00/hr</b></div>
+            <div><span>Housing</span><b>$100/нед</b></div>
+            <div><span>Shifts</span><b>вкл. выходные</b></div>
+          </div>
+          <div class="oc-foot">Sponsor: CIEE / Alliance Abroad<i>Job offer 2026</i></div>
+        </button>
+        <button type="button" class="ocard" data-j="3">
+          <div class="oc-head"><span>WT 402</span><em class="st">On time</em></div>
+          <div class="oc-role">Beach Store Associate</div>
+          <div class="oc-loc">Пляжный магазин · побережье</div>
+          <div class="oc-rows">
+            <div class="pay"><span>Wage</span><b>$13.00 + OT</b></div>
+            <div><span>Season</span><b>май — сентябрь</b></div>
+            <div><span>Housing</span><b>$150/нед</b></div>
+            <div><span>Location</span><b>у океана</b></div>
+          </div>
+          <div class="oc-foot">Sponsor: CIEE / Alliance Abroad<i>Job offer 2026</i></div>
+        </button>
+      </div>
+
+        <div class="fdetail" id="fdetail">
+        <div class="fd-left">
+        <div class="fd-head">
+          <div>
+            <span class="fd-lbl">Детали рейса</span>
+            <b id="fpickName">WT 115 · Lifeguard</b>
+          </div>
+          <a class="btn btn-1 btn-s" href="#gate5">Посчитать заработок →</a>
+        </div>
+        <div class="fd-grid">
+          <div><span>Овертайм</span><b id="fd-ot">$24.38 / час</b></div>
+          <div><span>Бонус</span><b id="fd-bonus">$500 за сезон</b></div>
+          <div><span>Английский</span><b id="fd-eng">Средний+</b></div>
+          <div><span>Где и как</span><b id="fd-where">На воздухе, у бассейна</b></div>
+        </div>
+        <p class="fd-diff"><em>Чем отличается:</em> <span id="fd-note"></span></p>
+        </div>
+        <div class="mapwrap" id="mapwrap">
+      <div class="map-head">
+        <span><i></i>Куда вы полетите</span>
+        <span class="mh-route" id="mhRoute">KAZ → MARYLAND · WT 115</span>
+      </div>
+      <svg class="dotmap" viewBox="0 0 1000 640" role="img" aria-label="Карта США: куда отправляем участников">
+        <use class="dots" href="#usdots"/>
+        <path id="usroute" class="routeline" d="" fill="none" stroke="#FFB020" stroke-width="3.4" stroke-linecap="round"/>
+        <g id="landing" class="landing" opacity="0">
+          <circle class="r1" r="10"/><circle class="r2" r="10"/>
+          <circle class="core" r="7"/>
+        </g>
+        <g id="planeg" class="planeg" opacity="0">
+          <path d="M-14 -10 L18 0 L-14 10 L-7 0 Z" fill="#FF4438"/>
+        </g>
+        <g class="origin" transform="translate(20,600)">
+          <circle r="7" fill="#fff"/><text x="16" y="6">ALMATY</text>
+        </g>
+        <text id="cityLabel" class="citylabel" x="0" y="0" opacity="0"></text>
+      </svg>
+      <div class="map-foot">
+        <span id="mapNote">Lifeguard / Pool Operator · $16.25 в час · жильё $160 в неделю</span>
+        <span class="map-sub"><em>выберите оффер — самолёт полетит туда</em></span>
+      </div>
+      </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 РАСЧЁТ -->
+<section class="stage" id="gate5" data-rail="5">
+  <div class="stub" aria-hidden="true"><b>STAGE 06 · BAGGAGE CALCULATION</b></div>
+  <div class="slam" aria-hidden="true">Baggage<small>earnings calc</small></div>
+  <div class="wrap">
+    <div class="anim"><p class="pa"><i></i>Этап 06 · Расчёт багажа</p></div>
+    <div class="anim"><h2>Сколько привезёте домой</h2></div>
+    <div class="anim" style="margin-bottom:26px"><p class="lead" style="margin-top:14px">Часы свыше 40 в неделю считаются по ставке ×1,5 — так требует американский закон.</p></div>
+    <div class="anim">
+      <div class="calc">
+        <div class="calc-card">
+          <div class="fld">
+            <label>Вакансия <b id="v-job">Lifeguard</b></label>
+            <div class="seg" id="jobseg">
+              <button type="button" data-j="0" aria-pressed="true">Lifeguard $16.25</button>
+              <button type="button" data-j="1" aria-pressed="false">Food Lion $15</button>
+              <button type="button" data-j="2" aria-pressed="false">Ride Operator $14</button>
+              <button type="button" data-j="3" aria-pressed="false">Beach Store $13</button>
+            <button type="button" data-j="4" aria-pressed="false">Официант $7.25 + чаевые</button>
+            </div>
+          </div>
+          <div class="fld">
+            <label for="hours">Часов в неделю <b id="v-hours">45</b></label>
+            <input type="range" id="hours" min="25" max="55" step="1" value="45">
+          </div>
+          <div class="fld">
+            <label for="weeks">Недель работы <b id="v-weeks">12</b></label>
+            <input type="range" id="weeks" min="8" max="16" step="1" value="12">
+          </div>
+          <div class="fld">
+            <label for="house">Жильё, $ в неделю <b id="v-house">160</b></label>
+            <input type="number" id="house" min="0" max="400" step="5" value="160" inputmode="numeric" class="numfld" aria-label="Стоимость жилья в неделю">
+          </div>
+          <div class="fld" id="tipFld" hidden>
+            <label for="tips">Чаевые, $ в час <b id="v-tips">6</b></label>
+            <input type="number" id="tips" min="0" max="30" step="1" value="6" inputmode="numeric" class="numfld" aria-label="Чаевые в час">
+            <p class="tipnote">Чаевые не гарантированы: зависят от заведения, города и сезона. Работодатель гарантирует только ставку $7.25.</p>
+          </div>
+          <p class="calc-hint">Ставки и стоимость жилья — из job offer сезона 2026; в сезоне 2027 могут отличаться. У официантов ставка ниже, разницу добирают чаевые — в расчёте они идут отдельной строкой.</p>
+        </div>
+        <div class="display">
+          <div class="dp-top"><span>Season summary</span><span id="r-job">Lifeguard / Pool Operator</span></div>
+          <div class="dp-main">
+            <span class="dp-lbl">На руки за сезон</span>
+            <b id="r-net">$7 130</b>
+            <span class="dp-kzt" id="r-kzt" hidden></span>
+            <span class="dp-sub">после оплаты жилья · без учёта налогов</span>
+          </div>
+          <div class="dp-rows">
+            <div><span>+ Работа по ставке</span><b id="r-base">$7 200</b></div>
+            <div><span>+ Сверхурочные ×1,5</span><b id="r-over">$1 350</b></div>
+            <div id="tipRow" hidden><span>+ Чаевые за сезон</span><b id="r-tips">—</b></div>
+            <div><span>+ Бонус за сезон</span><b id="r-bonus">$500</b></div>
+            <div class="minus"><span>− Жильё за сезон</span><b id="r-house">$1 920</b></div>
+            <div class="dp-cmp" id="dpCmp" hidden><span>Лайфгард при тех же часах</span><b id="r-lg">—</b></div>
+          </div>
+          
+          <div class="dp-act">
+            <a class="btn btn-1" href="#gate8">Хочу такую вакансию</a>
+            <button class="btn btn-share" type="button" data-share>Отправить другу</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 ПАСПОРТНЫЙ КОНТРОЛЬ -->
+
+<!-- 06 ТАРИФЫ И СТОИМОСТЬ -->
+<section class="stage" id="gate5b" data-rail="6">
+  <div class="stub" aria-hidden="true"><b>STAGE 07 · FARE · FULL / SELF</b></div>
+  <div class="slam" aria-hidden="true">Fare<small>full · self</small></div>
+  <div class="wrap">
+    <div class="anim"><p class="pa"><i></i>Этап 07 · Тарифы и стоимость</p></div>
+    <div class="anim"><h2>Два тарифа — одна программа</h2></div>
+    <div class="anim"><p class="lead" style="margin-top:16px">Главная разница — кто находит работодателя. Оформление, проверка американским спонсором, страховка и поддержка 24/7 есть в обоих.</p></div>
+
+    <div class="anim fare-grid">
+      <div class="fare">
+        <div class="fare-top"><span class="fare-k">Тариф Full</span><span class="fare-tag">подбираем мы</span></div>
+        <div class="fare-price-wrap"><div class="fare-amt">$3,550</div></div>
+        <p class="fare-lead">Мы подбираем работодателя и ведём весь процесс — от договора до вылета.</p>
+        <div class="fare-pay">
+          <div><b>$150</b><span>Бронь места</span></div>
+          <div><b>$600</b><span>в течение 30 дней</span></div>
+          <div><b>$1,000</b><span>до 30 ноября</span></div>
+          <div><b>$1,800</b><span>в течение 4 месяцев</span></div>
+        </div>
+        <div class="fare-inc">
+          <span class="fare-sub">В стоимость входит</span>
+          <ul>
+            <li>Подбор и предоставление Job Offer</li>
+            <li>Помощь в составлении резюме</li>
+            <li>Подготовка к интервью с работодателем</li>
+            <li>Заполнение анкеты DS-160</li>
+            <li>Подготовка к визовому собеседованию</li>
+            <li>Медицинская страховка до $100 000</li>
+            <li>Поддержка спонсора в США 24/7</li>
+          </ul>
+        </div>
+        <a class="btn btn-2 fare-btn" href="#gate8">Записаться на консультацию</a>
+      </div>
+
+      <div class="fare">
+        <div class="fare-top"><span class="fare-k">Тариф Self</span><span class="fare-tag">выбор большинства</span></div>
+        <div class="fare-price-wrap"><div class="fare-amt">$3,100</div></div>
+        <p class="fare-lead">Вы сами выбираете штат, город и работодателя, а американский спонсор проверяет компанию и утверждает Job Offer.</p>
+        <div class="fare-pay">
+          <div><b>$150</b><span>Бронь места</span></div>
+          <div><b>$600</b><span>в течение 30 дней</span></div>
+          <div><b>$850</b><span>до 30 ноября</span></div>
+          <div><b>$1,500</b><span>в течение 4 месяцев</span></div>
+        </div>
+        <div class="fare-inc">
+          <span class="fare-sub">В стоимость входит</span>
+          <ul>
+            <li>Проверка работодателя американским спонсором</li>
+            <li>Заполнение анкеты DS-160</li>
+            <li>Подготовка к визовому собеседованию</li>
+            <li>Медицинская страховка до $100 000</li>
+            <li>Поддержка спонсора в США 24/7</li>
+          </ul>
+          <span class="fare-sub">Почему выбирают Self</span>
+          <ul>
+            <li>Свободный выбор штата, города и вакансии</li>
+            <li>Можно поехать к работодателю, у которого работали друзья</li>
+            <li>Выше шанс оформиться вместе с друзьями</li>
+          </ul>
+        </div>
+        <a class="btn btn-1 fare-btn" href="#gate8">Оформиться на Self</a>
+      </div>
+    </div>
+
+    <div class="anim extra">
+      <div class="extra-head"><span class="fare-k">Оплачивается отдельно · по обоим тарифам</span></div>
+      <div class="extra-row">
+        <div><b>$185</b><span>консульский сбор</span></div>
+        <div><b>$35</b><span>сбор SEVIS</span></div>
+        <div><b>$800–1 300</b><span>авиабилеты, ориентировочно</span></div>
+        <div><b>$1 000–1 500</b><span>деньги с собой на первые недели</span></div>
+      </div>
+      <p class="extra-note"><b>Билеты вы покупаете сами — и это выгоднее.</b> Любая авиакомпания, маршрут и даты на ваш выбор — никаких штрафов за самостоятельную покупку. Ловите выгодную цену, копите мили и кэшбэк по своей карте. Мы подскажем, как подобрать рейс и удобный маршрут до работодателя. Консульский сбор и сбор SEVIS вы платите напрямую посольству и системе SEVIS — они не входят ни в один тариф.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="docsec" id="docs">
+  <div class="wrap">
+    <div class="anim"><p class="pa"><i></i>Check-in · документы</p></div>
+    <div class="anim"><h2>Документы для участия</h2></div>
+    <div class="anim"><p class="lead" style="margin-top:14px">Всего шесть документов — и все они уже есть у вас на руках. Остальное оформление мы берём на себя.</p></div>
+    <div class="anim docs-grid">
+      <ul class="doclist">
+        <li><i>01</i><div><b>Паспорт</b><span>главная страница с фото и данными</span></div></li>
+        <li><i>02</i><div><b>Удостоверение личности</b></div></li>
+        <li><i>03</i><div><b>Справка из вуза</b><span>предпочтительно на английском языке</span></div></li>
+        <li><i>04</i><div><b>Транскрипт с оценками</b></div></li>
+        <li><i>05</i><div><b>Свидетельство о рождении</b></div></li>
+        <li><i>06</i><div><b>Фото 5×5 см</b></div></li>
+      </ul>
+    </div>
+    <div class="anim" style="margin-top:26px">
+      <a class="btn btn-1" href="#gate8">Записаться на консультацию</a>
+    </div>
+  </div>
+</section>
+
+<section class="stage dark" id="gate4" data-rail="4">
+  <img class="usdeco eagle" src="/wt2027/img/40e228fa.png" alt="" aria-hidden="true">
+  <div class="stub" aria-hidden="true"><b>STAGE 08 · PASSPORT CONTROL · J-1</b></div>
+  <div class="wrap">
+    <div class="slam" aria-hidden="true">Cleared<small>passport control</small></div>
+    <div class="anim"><p class="pa"><i></i>Этап 08 · Паспортный контроль</p></div>
+    <div class="anim"><h2>Интервью в посольстве</h2></div>
+    <div class="anim" style="margin-bottom:26px"><p class="lead" style="margin-top:14px">Собеседования идут в апреле и мае. К этому дню вы уже прошли с нами все четыре шага подготовки.</p></div>
+    <div class="anim">
+      <div class="pp">
+        <div class="vsteps" id="vsteps">
+          <button type="button" class="vstep on" data-i="0"><em>01</em><span>Анкета DS-160</span></button>
+          <button type="button" class="vstep" data-i="1"><em>02</em><span>Вопросы на визу J-1</span></button>
+          <button type="button" class="vstep" data-i="2"><em>03</em><span>Репетиция интервью</span></button>
+          <button type="button" class="vstep" data-i="3"><em>04</em><span>Стратегия поведения</span></button>
+        </div>
+        <div class="pp-body">
+          <div class="pp-stamp"><span class="ps-top">Visa</span><b>J-1</b><small>Approved</small><i>★★★</i></div>
+          <h3 id="v-title">Пошагово заполняем анкету DS‑160</h3>
+          <p id="v-text">Большинство отказов начинается не на интервью, а в анкете: опечатка в датах, неверно указанная работа, несовпадение с формой DS-2019. Заполняем её вместе с вами и проверяем перед отправкой.</p>
+          <div class="dots" id="dots"></div>
+        </div>
+      </div>
+    </div>
+    <div class="anim abars" id="approve">
+      <p class="abars-head">Одобрение виз у наших участников</p>
+      <div class="abar"><em>2024</em><div class="track"><i data-w="94"></i></div><b>94%</b></div>
+      <div class="abar"><em>2025</em><div class="track"><i data-w="96" class="g"></i></div><b>96%</b></div>
+      <div class="abar"><em>2026</em><div class="track"><i data-w="90"></i></div><b>90%</b></div>
+      <p class="abars-note">Доля одобренных виз среди участников GLOBUS EXCHANGE по итогам сезона. Решение по визе принимает посольство США, поэтому одобрение не может быть гарантировано заранее.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 ВЗЛЁТ -->
+<section class="stage" id="gate6" data-rail="6">
+  <div class="stub" aria-hidden="true"><b>STAGE 09 · TAKE OFF · SEASON</b></div>
+  <div class="slam" aria-hidden="true">Take off<small>8 may — 1 sep</small></div>
+  <div class="wrap">
+    <div class="anim"><p class="pa"><i></i>Этап 09 · Взлёт · маршрут сезона</p></div>
+    <div class="anim"><h2>Как проходит лето</h2></div>
+    <div class="anim">
+      <div class="legs">
+        <div class="leg"><div><div class="no">LEG 01</div><div class="when">Чем раньше, тем лучше</div></div>
+          <div><h3>Заявка и договор</h3><p>Проверяем требования, разбираем даты сессии и бюджет. Подписываем договор — и вы занимаете место в квоте сезона.</p></div></div>
+        <div class="leg"><div><div class="no">LEG 02</div><div class="when">Сразу после договора</div></div>
+          <div><h3>Выбор job offer</h3><p>Показываем проверенные вакансии под ваш английский и даты. Позиции закрываются по мере набора.</p></div></div>
+        <div class="leg"><div><div class="no">LEG 03</div><div class="when">Апрель — май</div></div>
+          <div><h3>Посольство США</h3><p>Анкета DS-160, реальные вопросы на визу, репетиции интервью в группе и один на один.</p></div></div>
+        <div class="leg"><div><div class="no">LEG 04</div><div class="when">8 мая — 1 сентября</div></div>
+          <div><h3>Работа в США</h3><p>Обычно 8–10 недель. Смены, команда из разных стран, зарплата на американский счёт раз в две недели.</p></div></div>
+        <div class="leg leg-road"><div><div class="no">LEG 05</div><div class="when">После работы</div></div>
+          <div class="leg-travel">
+            <div><h3>Период Travel</h3><p>30 дней, когда работать уже нельзя, а ехать — можно: Гранд-Каньон, Ниагара, Нью-Йорк, Майами.</p></div>
+            <svg class="rt66" viewBox="0 0 120 132" role="img" aria-label="Указатель Route 66">
+              <path class="rt-plate" d="M60 3c22 0 38 3.5 41 4.2 1.6 .35 2.6 1.7 2.6 3.3v46.6c0 33.6-24.4 55.8-42 68.6-1 .7-2.2 .7-3.2 0C40.8 113 16.4 90.8 16.4 57.2V10.5c0-1.6 1-2.95 2.6-3.3C22 6.5 38 3 60 3z"/>
+              <text class="rt-top" x="60" y="30" text-anchor="middle">ROUTE</text>
+              <path class="rt-rule" d="M28 40h64"/>
+              <text class="rt-num" x="60" y="98" text-anchor="middle">66</text>
+            </svg>
+          </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОДБОР МАРШРУТА -->
+<section class="stage" id="gate7b" data-rail="7">
+  <div class="stub" aria-hidden="true"><b>STAGE 10 · ROUTE MATCH</b></div>
+  <div class="slam" aria-hidden="true">Route<small>match</small></div>
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <div class="anim"><p class="pa"><i></i>Этап 10 · Подбор маршрута</p></div>
+        <div class="anim"><h2>Подберём ваш вариант</h2></div>
+        <div class="anim"><p class="lead" style="margin-top:18px">Ответьте на пять быстрых вопросов о курсе, английском и датах сессии — покажем, какой формат участия вам подходит и что учесть при выборе вакансии.</p></div>
+      </div>
+      <div class="anim">
+        <div class="checkin perf" id="quiz">
+          <div class="perf-head"><span>Route match</span><span>WT-2027</span></div>
+          <div class="ci-head">
+            <span id="q-count">Вопрос 1 из 5</span>
+            <div class="ci-bar"><i id="q-fill"></i></div>
+          </div>
+          <div id="q-body">
+            <div class="ci-q" id="q-text"></div>
+            <div class="ci-opts" id="q-opts"></div>
+          </div>
+          <div class="ci-res" id="q-result" hidden>
+            <div class="ppage" id="ppage">
+              <div class="pp-ruled" aria-hidden="true"></div>
+              <div class="pp-cap">Passport · виза J-1</div>
+              <div class="visastamp" id="q-stamp">
+                <span class="vs-top">United States of America</span>
+                <b id="vs-main">J-1 · Approved</b>
+                <span class="vs-bot">GLOBUS EXCHANGE · ALMATY · <i id="vs-date"></i></span>
+              </div>
+            </div>
+            <h3 id="q-title"></h3>
+            <p id="q-desc"></p>
+            <div class="ci-act">
+              <a class="btn btn-1" href="#gate8" id="q-cta">Записаться на консультацию</a>
+              <button class="btn btn-2" type="button" id="q-again">Пройти заново</button>
+              <button class="btn btn-share" type="button" data-share>Отправить другу</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="anim" style="margin-top:46px"><p class="pa"><i></i>Частые вопросы</p></div>
+    <div class="anim"><h2>Коротко о главном</h2></div>
+    <div class="anim faq" id="faq">
+      <details>
+        <summary>Что будет с деньгами, если откажут в визе?</summary>
+        <div class="fa-body"><p>Первый и второй платежи — <b>200 000 ₸ и $450</b> — удерживаются.</p><p>Консульский сбор <b>$185</b> и сбор SEVIS <b>$35</b> не возвращаются ни при каких условиях: они уплачиваются напрямую американским государственным структурам, агентство их не получает. Точные условия — в договоре.</p></div>
+      </details>
+      <details>
+        <summary>Какая это работа?</summary>
+        <div class="fa-body"><p>Сезонная работа в сфере услуг: бассейны, парки, отели, магазины, кафе. Опыт и квалификация не нужны — всему учат на месте.</p><p>Часть работ программа запрещает: ночные смены, уход за людьми, стройку, производство. Этот список устанавливает Государственный департамент США, и спонсор обязан его соблюдать — <a href="https://www.ecfr.gov/current/title-22/chapter-I/subchapter-G/part-62/subpart-B/section-62.32" target="_blank" rel="noopener">полный список в регламенте программы</a>.</p></div>
+      </details>
+      <details>
+        <summary>Можно ли работать на второй работе?</summary>
+        <div class="fa-body"><p>Да, по согласованию со спонсором. Прежде чем вы выйдете на смену, спонсор обязан проверить второго работодателя — это требование программы, и оно на вашей стороне.</p></div>
+      </details>
+      <details>
+        <summary>Кто ищет жильё?</summary>
+        <div class="fa-body"><p>На тарифе <b>Full</b> жильё чаще всего предоставляет работодатель. Если нет — вы ищете его сами, и спонсор обязан помогать: по правилам программы это его обязанность, а не любезность.</p><p>На тарифе <b>Self</b> вы ищете и работодателя, и жильё самостоятельно.</p></div>
+      </details>
+      <details>
+        <summary>Можно ли поехать с друзьями?</summary>
+        <div class="fa-body"><p>Да. Лучше всего это получается у работодателей, которые берут много студентов за сезон — там больше шансов оказаться в одном месте.</p><p>Небольшой компанией это вполне реально. Большой группой — почти нет.</p></div>
+      </details>
+      <details>
+        <summary>Можно ли жить вместе с друзьями?</summary>
+        <div class="fa-body"><p>Жить рядом — да. В одной комнате — чаще всего нет: жильё почти везде разделено на мужское и женское.</p></div>
+      </details>
+      <details>
+        <summary>Когда можно вылететь и можно ли вернуться раньше?</summary>
+        <div class="fa-body"><p>Для студентов казахстанских вузов программа идёт <b>с 8 мая по 1 сентября</b> — <a href="https://kz.usembassy.gov/summer-work-and-travel-program/" target="_blank" rel="noopener">по данным Посольства США в Казахстане</a>. Дату вылета вы выбираете сами и указываете в документах: её подстраивают под вашу сессию.</p><p>Закончить работу и вернуться домой раньше можно — предупредите работодателя и спонсора заранее.</p></div>
+      </details>
+      <details>
+        <summary>Можно ли путешествовать по США?</summary>
+        <div class="fa-body"><p>Да, по всем штатам — и в свободные дни во время работы, и после неё.</p><p>Когда программа заканчивается, остаётся ещё <b>30 дней на путешествия</b>. Работать в эти дни уже нельзя — только ездить по стране.</p></div>
+      </details>
+      <details>
+        <summary>Входит ли медицинская страховка?</summary>
+        <div class="fa-body"><p>Да, страховка входит в стоимость программы. Минимальное покрытие, которое требуют правила программы, — <b>$100 000</b>.</p><p>Что именно она покрывает, разбираем на консультации.</p></div>
+      </details>
+      <details>
+        <summary>Нужно ли платить налоги в США?</summary>
+        <div class="fa-body">
+          <ul class="fa-list">
+            <li class="y"><b>Федеральный подоходный налог.</b> При летнем заработке это обычно 10%: шкала ступенчатая, и большинство участников не выходит за первую ступень.</li>
+            <li class="y"><b>Налог штата.</b> Зависит от штата: во Флориде, Техасе, Неваде, Теннесси, Вайоминге и Южной Дакоте его нет вообще. Где есть — при летнем заработке обычно до 5%. Самая высокая ставка в стране у Калифорнии, 13,3%, но она касается доходов от миллиона долларов.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+    <div class="anim"><p class="faq-note">Не нашли свой вопрос — напишите в WhatsApp, ответим по вашей ситуации. Условия участия, сроки и стоимость подтверждаются координатором и договором.</p></div>
+  </div>
+</section>
+
+<!-- 08 ПОСАДКА -->
+
+<div class="legalwrap">
+  <div class="wrap legal">
+    <p>Информация на странице носит справочный характер и не является публичной офертой. Условия участия, сроки и стоимость подтверждаются координатором и договором.</p>
+    <p>Ставки оплаты труда, стоимость жилья и авиабилетов указаны ориентировочно и зависят от штата, работодателя и сезона. Расчёт в калькуляторе носит оценочный характер и не является гарантией дохода. Чаевые не гарантированы. Бонус за сезон выплачивается, только если он предусмотрен вашим job offer.</p>
+    <p>Решение о выдаче визы J-1 принимает посольство США. Агентство готовит документы и участника к собеседованию, но не влияет на решение посольства и не гарантирует одобрение визы. Одобрение job offer относится к компетенции американского спонсора программы.</p>
+    <p>Показанные офферы относятся к прошлому сезону и приведены как пример. Наличие конкретных вакансий, штатов и работодателей в сезоне 2027 подтверждается на консультации. Фотографии предоставлены участниками программы и опубликованы с их согласия.</p>
+    <div class="credit">
+      <span>Дизайн сайта</span>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAAsCAYAAAAtv0UIAAALCElEQVR42r1be4ycVRX/nXPvN7ud2dZa08fObCkGRFK1BtbSnW2bUSQR/0KMS1UQRQmhFFPfBg2pi/hA8cXTR0CMUYShJMaIioiudB8Fi5FAEwHR4j4oARF2Z7Y7373n+Mf9tq51d+eb7UxvcneS2f1ev3PO7/7O735LaPnoM0DZL+sqbmblhwCNAFAyFxsKEClkkhxOrRwefj45Rhu7fskCAy6XL36S2F6v6jxApv5x6ogjq+ovrIwO/hToM9xipGYBYVJ8k5jbANUUQDUxUAOuvbNnK4i/pOoFIE4NlLjbZ4ECyr7FYPUxUPa5fHEnc7RNJW1UmzIYKMuy9b15w6YMorYkKesESj2RtSru0cqyFVcAexgoS3LCVo1wkeyG0joQXauSNqrNyugSAwB5/JiYO6Hep7i+AkyqMsXK78PTv5757/ctBetg4Je4dj2xXQnICSy/kgEGXK6z52ts7NkqzqXkKU/MDPUfmRzf92Tgu36Zk6qtI/VcoXg2G3OhSnwCyy/w1LJC8T1kok+pxA4gm46nMla8+1ZlfOTu2YXhmLpuEamfem6bgm6E4gRm1B4Gyn55fttpDL5NVSR9RlmrUhuujmc+kwDuj/0r25oSKLtstXgVm2hj+sg2I0gHCd3dkTwnPyMyKxKZUC8hBMSsKi96jXcAwy5JIp1nxWh2ZAf88sKW1xGZz53Y1a8USn8icwuxPUM1FU8poEJgEvGXHBn/0z9DVkEWWF6bT+qifAMxLUu3VDcFKAsMuGxn76Vkoksb4ClPnLGq8fXT4yO/COcp+0W0SLNJvfciMtG5KVcgbc51B1yusGUTMd2cPptneSoerJzadlUCuF/sCNs8vtiorzpp26udl6+rek0HFNFx4kXARn3Na3qXTwN3EVEGgdQpBU+RqLzYJvT+ysDAgjzVgswqGaBfYi9fJLbrwg3XKz8iVX25GdedbtcfM9vT0wtPFQIz1F380sTgs4vxVJPBCmWwPF/sJeIrUpSBgFih8hSg1xIZAOqXzFP5nk8zZ85TcXH68stYFX9ddWz/ffV4qplghewplawHfZdSlZUqkSElfFyVnkoSQZfEU/mec4jtVwOhw6blKfHxg5XxoVQ81USwkuX6qdpuNvZN9Zdr9UTWiMR/rI4N/5IMVi+Bs0KD3NVTUDI/AZQA5RSrroCYReR51GYuCl8NSCOBOg6wgqZqW997Coj7VVw9tawAQVVmCP6jAAjasKwgoI8AgJTuZOY1CaGn4CkIQIDoB6ovHJgIjkh9nmoSWEFTWa83EptcfZ9KPbE1UPlmZWz/YwAU2ihXbbRJz3kdc7S9sQY5siquvzoxdH8jPNUEsIKm6li39d1k7DtTNMoCMka9G6vM0FdQKi1RshysdRSKfUT2040JT2vVx7+pjo9c0yhPHS9YQVNtKK1U1u+oprFeVImYiLAbLw5NYmxZQy2QtjsGgBVdPacq0e0NNMgCMkZEDsPrxUvhqeMEK9FUrvZFMrYLKnW0jXriyKiPfzU1NrQX6DN4erqRyBIZK0B35IT3EkxHSm9MAQJUj4jq+cHDb5ynjgOsxCvqKm4m4stTaKqw6aC+6qy5MjxgudGoKlQIOOCJdDAR542cgyxLphnSmxsrv/DJQjcT2NZvlNUTW1b1X5p5dt8zISuXENlK4L3K2PAu8fHvia1NIWQp+dmmau5tW3vWawOp7+ETAFaiqbp6ryRjN6fQVAIyVnz8RHVd/PWFDLV0YeKjmcSauUC9HwUZA6jUfT4VD+JV1tp7sKHUfkzgWwIWAwO+Pf+W9VB8Odl8qNsoEwBm3YUDB+LmuAwlMzUx8AKpvBeKGCCtf04yUOeI7ZlZV7sjeOol00Kw+giAGopuJE5DsAmpq79janRkYFZqLNDUegA+fM43Mee4AQ+U7NTEyKDCX0lsTbq+kqxK7JijHdlCz1XBW29cvnA6Ui/7js7iu4ij81IIwWB/iH8RDp9N2hNdgLnbiCNDbNqIrTlmWmJriGhlIPijgDmgO6qODX9fJb6VOLKAuhSAGRXniOyXc4Utb10KYFT/93to9eo/ZKuZ2hMgsx7Bq1pMKjjiyHqpXT49NvK9+XZJkutq+7riBmujMz1iTar2mGEA8W46u/L+OXt4s20PA2XNdvX+jsm8NZ3ppwJiUsXzorz5yPhD/wyE3y9NACuxQQo932DOfKK+Ug+NsqobrowNb53dkW6Rl8wANHtS9zr49j8TYQ1UtX61zN6jP1Ah2Y7R9bVkx7kun9o65eey+eIZRPyxJHJct1GGeFXsSknmPLtzvPgYcPOWO/pM9dnyREdXzw6FfTBZHeu8dEJG1TniqDsn8S0VlC8BuiPg6CK04DALZ9wbCDiIaMX6u5nMhkDqi5afEEdGxd1UHR/5YcjK+/ycSNM8E8AhrT8X7BUVKNnaK4N/z3QUKmSic9O5pcRQ74ijM21HZzWefOShcL+HZAlghQftyPfuJBPtTDSVrUfqEBlrz/r3TP/r0hj40WyUFS0dhwQo2Xhy36DtKLyeTfRmqHcpACOoeGbzDru88+F4cvDJUE0HtRHOYgDInrR9Lbw8ToSVwX1B/f7PuYsqE0M/CRfdqEC/5ArFswFzXfCdtAERTKFVIq1akvNfGR351yLgB8Jf+9f2bNQxxDCbUr6HJSAiKF5yznXPHN7/j+Q5JSVn9RFQ9vDuW8zRqlSkztaIdw9WjwJVFmAPrV27KTcFuo3YnKxL2kIkQGPxNY1SmHvA4ccqvO6s96nlRwBuT/EuGEPFE9lV1pq9MxtKW3FoTQyU5w0Kz6epcvlt5zDZHSl8qkDqIjELfzQx6HTWmZgyHVcT25NVajWoCNT5BqaDOg9gcm67s/AoB8H63MMHSf0HiZlTCtaE8O2ZuTj+fnIeU4+zAql3rWiPoL8A0aoALtVT6hbiv1GZGLozcF0VwH0+19XzJsDcEe6XbAgMNTIpfGpMghviymilfmoG/qpN7nvcLC8wc+ZtKfkrEL6JzoiW5/8dT+4bno/w+f8aZaGrmaPTUqwqwf0Ud6jiO65J+keZ0xneTEzRidvC/9+WaHpseI/6+JeJwk+XYeIcyHw7ly++PciVPjMPWHsYGHAdncXTQfzJlGpYiYhEsBuHf1sJXBf4LlsoXkb/9chnd3rnm60YmrgbnGnPXqji/5bSoUh2iVSV6M72/Pb1x1o6yRbSQQIAIfouEWfS+VSRUe9+PT0x9POE6xQo+/bOrScR+PrEmbDhPLTAbNlQoI9eeuaBl1X8BVCdSelQMFSEyaxmcneFUjx4VBPybPll88VL2NhSild1wpIu7gjD7J715JPMMoblBiJeDohA9QgUNahOq+rLqvqKQl9RyFTYuk/TAC91BMKvTow8KvC7g0MBl5bwmaNiLh/fNJfwCQDn1mxZrRn7BCleXf9d09Aow7svTI0P9f+v/dJnsoXxNxrVI6pKDlxViQ1bxFZ1WjVLUE/euowVf8Rr1M/W7lpgp6bJ78H3fo+Mvayx1yYjK+Iuq44N/QDojggAcp09t5Ft+7BKzadwP1lFnl7Fsmm0gSZ0vpErFK8ljj7fWrASwdr9DOeea9tHZM5KKViTjVl2Ct1SHRv8C2cLW98JNh9SiVO4n5Q4oLJzdHRkegH3kxeYc3rC7vBfFnpCXp9UYKPiwIHYOb9DVF4AMacAnQAlENoI2LtsfW+eCXorCDy/n3QsqRuG+Hsr4yMPLOJ+ygJzzirY0eoV8ZjRL0DJzhze/w+G7CSQJuoe9QnfC4hPYdF7/gMDbEHLl+LYRgAAAABJRU5ErkJggg==" alt="AK" width="75" height="44" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+
+<section class="stage dark" id="gate8" data-rail="8">
+  <div class="stub" aria-hidden="true"><b>STAGE 11 · FINAL CALL · WT-2027</b></div>
+  <div class="slam" style="top:9%" aria-hidden="true">Final call<small>seat 27a</small></div>
+  <div class="wrap">
+    <div class="anim"><p class="pa"><i></i>Последний вызов на посадку</p></div>
+    <div class="final-grid" style="margin-top:14px">
+      <div>
+        <div class="anim"><img class="bigmark" src="images/globus-exchange-logo.png" alt="Globus Exchange Programs" loading="lazy" decoding="async"></div>
+        <div class="anim"><h2>Набор на сезон 2027<br>открыт</h2></div>
+        <div class="anim">
+          <p class="lead" style="margin-top:16px">Выберите тариф и оставьте заявку — менеджер свяжется с вами и расскажет о следующих шагах.</p>
+          <ul class="checks">
+            <li><span><b>Официально представляем CIEE и Alliance Abroad Group</b> — двух крупнейших спонсоров программы.</span></li>
+            <li><span><b>Офис в Алматы</b> — ул. Гагарина, 236Б.</span></li>
+            <li><span><b>Офис в Астане</b> — БЦ «Таймас», офис 301, ул. Бейбит Майлина, 19.</span></li>
+            <li><span><b>Ведём на всех этапах</b> — от подбора job offer до получения визы.</span></li>
+          </ul>
+          <div class="contacts">
+            <div><span class="cl">Телефон офиса в Алматы</span><a href="tel:+77714064549">+7 771 406-45-49</a></div>
+            <div><span class="cl">Телефон офиса в Астане</span><a href="tel:+77714064549">+7 771 406-45-49</a></div>
+            <div><span class="cl">График</span>Пн–Пт 11:30–18:00</div>
+          </div>
+          <a class="btn btn-wa" style="margin-top:22px" href="https://wa.me/77714064549" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        </div>
+      </div>
+
+      <form class="anim perf" id="lead" novalidate>
+        <div class="perf-head"><span>Boarding pass</span><span>Seat 27A</span></div>
+        <div class="f-head"><b>Набор открыт</b><span>СЕЗОН 2027 · ОСТАВЬТЕ ЗАЯВКУ</span></div>
+        <div class="ig-pause">
+          <p>Оставьте заявку в WhatsApp — менеджер ответит и поможет выбрать тариф.</p>
+          <a class="btn btn-wa btn-lg" href="https://wa.me/77714064549?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D1%8F%D0%B2%D0%BA%D1%83%20%D0%BD%D0%B0%20Work%20and%20Travel%20USA%2C%20%D1%81%D0%B5%D0%B7%D0%BE%D0%BD%202027." target="_blank" rel="noopener" style="width:100%;justify-content:center">Оставить заявку в WhatsApp</a>
+        </div>
+      </form>
+
+      <div class="sent anim" id="sent" hidden>
+        <div class="sent-stamp">Заявка</div>
+        <h3>Заявка готова к отправке</h3>
+        <p id="sentWho">Заявка отправлена. Менеджер свяжется с вами в рабочее время: Пн–Пт 11:30–18:00.</p>
+        <div class="sent-rows">
+          <div><span>Flight</span><b>WT-2027 · KAZ → USA</b></div>
+          <div><span>Status</span><b class="ok">Confirmed</b></div>
+          <div><span>Next</span><b>Звонок менеджера</b></div>
+        </div>
+        <div class="sent-act">
+          <a class="btn btn-wa" id="waSent" href="https://wa.me/77714064549" target="_blank" rel="noopener">Открыть WhatsApp ещё раз</a>
+          <div class="promo">
+            <div class="promo-head"><span>Талон</span><b>Заберите посадочный талон</b></div>
+            <p>Скачайте свой посадочный талон на память. Захотите — выложите в сторис и отметьте <b>@globus_exchange_</b>, будем рады вас увидеть.</p>
+            <div class="pass-btns">
+              <button class="btn btn-1" type="button" data-pass="story">Скачать талон для сторис</button>
+              <button class="btn btn-2" type="button" data-pass="wide">Талон картинкой</button>
+            </div>
+            <a class="promo-ig" href="https://www.instagram.com/globus_exchange_/" target="_blank" rel="noopener">Открыть @globus_exchange_ →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="modal" id="spmodal" role="dialog" aria-modal="true" aria-labelledby="sp-title">
+  <div class="modal-in">
+    <button class="modal-x" type="button" id="sp-close" aria-label="Закрыть">×</button>
+    <img id="sp-logo" src="images/globus-exchange-logo.png" alt="Globus Exchange Programs">
+    <h3 id="sp-title"></h3>
+    <p id="sp-text" style="color:var(--ink-2);font-size:16px"></p>
+    <ul id="sp-list"></ul>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap fbar">
+    <div class="fmark"><img src="images/globus-exchange-logo.png" alt="Globus Exchange Programs" loading="lazy" decoding="async"><span>© 2026 GLOBUS EXCHANGE PROGRAMS · WORK AND TRAVEL USA · ALMATY</span></div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <a href="tel:+77714064549">+7 771 406-45-49</a>
+      <a class="f-ig" href="https://www.instagram.com/globus_exchange_/" target="_blank" rel="noopener"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.3"/><circle class="dot" cx="17.3" cy="6.7" r="1.35"/></svg>Instagram</a>
+      <a href="#gate8">Консультация</a>
+    </div>
+  </div>
+</footer>
+
+
+<button class="evtab" id="evtab" type="button" hidden aria-label="Презентация 18 сентября"><b>18 сентября</b> · презентация</button>
+<div class="dock" id="dock">
+  <span>Бесплатная консультация — 20 минут</span>
+  <a class="btn btn-1 btn-s" href="#gate8">Записаться</a>
+  <a class="btn btn-ig btn-s btn-ico dock-ig" href="https://www.instagram.com/globus_exchange_/" target="_blank" rel="noopener" aria-label="Instagram GLOBUS EXCHANGE"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.3"/><circle class="dot" cx="17.3" cy="6.7" r="1.35"/></svg></a>
+  <a class="btn btn-wa btn-s" href="https://wa.me/77714064549" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script src="script.js"></script>
+
+<!-- Яндекс.Метрика -->
+<script>
+// ПОЧЕМУ СЧЁТЧИК ПОДКЛЮЧАЕТСЯ ПОЗЖЕ (02.09.2026).
+// tag.js весит 288 КБ, tag_phono.js — ещё 55 КБ. Вместе это больше, чем весь остальной
+// сайт (страница отдаётся сжатой в 60 КБ). Стандартная вставка тянет их одновременно с
+// отрисовкой первого экрана: браузер делит канал и процессор между тем, что человек
+// должен увидеть, и тем, что нужно нам для статистики.
+//
+// Что сделано. Заглушка ym() и вызов init стоят как прежде — все обращения к счётчику
+// копятся в очереди и уходят целиком, когда скрипт доедет. Меняется только МОМЕНТ
+// загрузки: после события load, в первую свободную паузу браузера (но не позже двух
+// секунд), либо сразу — если человек раньше двинул страницу или нажал. Данные те же:
+// визит, цели, карта кликов, вебвизор. Ничего не отключено.
+window.__YM_ID = 111974380;
+window.ym = window.ym || function(){ (window.ym.a = window.ym.a || []).push(arguments) };
+window.ym.l = 1 * new Date();
+ym(window.__YM_ID, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+(function(){
+  var подключено = false;
+  var события = ['pointerdown','keydown','wheel','touchstart'];
+  function подключить(){
+    if (подключено) return; подключено = true;
+    события.forEach(function(e){ removeEventListener(e, подключить); });
+    var s = document.createElement('script');
+    s.async = 1; s.src = 'https://mc.yandex.ru/metrika/tag.js';
+    document.head.appendChild(s);
+  }
+  события.forEach(function(e){ addEventListener(e, подключить, {passive:true}); });
+  addEventListener('load', function(){
+    if (window.requestIdleCallback) requestIdleCallback(подключить, {timeout:2000});
+    else setTimeout(подключить, 1200);
+  });
+})();
+
+// цели: whatsapp — клик по любой кнопке WhatsApp; lead — заявка из формы;
+// quiz — квиз доведён до результата; calc — пользователь двигал калькулятор
+window.ymGoal = function(n){
+  try { if (typeof ym === 'function' && window.__YM_ID) ym(window.__YM_ID, 'reachGoal', n); } catch(e){}
+};
+document.addEventListener('click', function(e){
+  if (e.target.closest && e.target.closest('a[href*="wa.me"]')) window.ymGoal('whatsapp');
+}, true);
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111974380" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<!-- /Яндекс.Метрика -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Что будет с деньгами, если откажут в визе?", "acceptedAnswer": {"@type": "Answer", "text": "Первый и второй платежи — 200 000 ₸ и $450 — удерживаются.Консульский сбор $185 и сбор SEVIS $35 не возвращаются ни при каких условиях: они уплачиваются напрямую американским государственным структурам, агентство их не получает. Точные условия — в договоре."}}, {"@type": "Question", "name": "Какая это работа?", "acceptedAnswer": {"@type": "Answer", "text": "Сезонная работа в сфере услуг: бассейны, парки, отели, магазины, кафе. Опыт и квалификация не нужны — всему учат на месте.Часть работ программа запрещает: ночные смены, уход за людьми, стройку, производство. Этот список устанавливает Государственный департамент США, и спонсор обязан его соблюдать — полный список в регламенте программы."}}, {"@type": "Question", "name": "Можно ли работать на второй работе?", "acceptedAnswer": {"@type": "Answer", "text": "Да, по согласованию со спонсором. Прежде чем вы выйдете на смену, спонсор обязан проверить второго работодателя — это требование программы, и оно на вашей стороне."}}, {"@type": "Question", "name": "Кто ищет жильё?", "acceptedAnswer": {"@type": "Answer", "text": "На тарифе Full жильё чаще всего предоставляет работодатель. Если нет — вы ищете его сами, и спонсор обязан помогать: по правилам программы это его обязанность, а не любезность.На тарифе Self вы ищете и работодателя, и жильё самостоятельно."}}, {"@type": "Question", "name": "Можно ли поехать с друзьями?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Лучше всего это получается у работодателей, которые берут много студентов за сезон — там больше шансов оказаться в одном месте.Небольшой компанией это вполне реально. Большой группой — почти нет."}}, {"@type": "Question", "name": "Можно ли жить вместе с друзьями?", "acceptedAnswer": {"@type": "Answer", "text": "Жить рядом — да. В одной комнате — чаще всего нет: жильё почти везде разделено на мужское и женское."}}, {"@type": "Question", "name": "Когда можно вылететь и можно ли вернуться раньше?", "acceptedAnswer": {"@type": "Answer", "text": "Для студентов казахстанских вузов программа идёт с 8 мая по 1 сентября — по данным Посольства США в Казахстане. Дату вылета вы выбираете сами и указываете в документах: её подстраивают под вашу сессию.Закончить работу и вернуться домой раньше можно — предупредите работодателя и спонсора заранее."}}, {"@type": "Question", "name": "Можно ли путешествовать по США?", "acceptedAnswer": {"@type": "Answer", "text": "Да, по всем штатам — и в свободные дни во время работы, и после неё.Когда программа заканчивается, остаётся ещё 30 дней на путешествия. Работать в эти дни уже нельзя — только ездить по стране."}}, {"@type": "Question", "name": "Входит ли медицинская страховка?", "acceptedAnswer": {"@type": "Answer", "text": "Да, страховка входит в стоимость программы. Минимальное покрытие, которое требуют правила программы, — $100 000.Что именно она покрывает, разбираем на консультации."}}, {"@type": "Question", "name": "Нужно ли платить налоги в США?", "acceptedAnswer": {"@type": "Answer", "text": "Из зарплаты удерживают федеральный подоходный налог — это нормально.А вот налоги Social Security и Medicare с участников программы удерживать не должны. Если их всё-таки удержали, деньги можно вернуть — объяснение на сайте налоговой службы США. Расскажем, как это делается."}}]}</script>
+</body>
+</html>
