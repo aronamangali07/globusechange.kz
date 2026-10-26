@@ -131,12 +131,6 @@ header.on-dark .lang button.on{background:var(--paper);color:var(--ink)}
   animation:twinkle 7s ease-in-out infinite alternate}
 @keyframes twinkle{from{opacity:.28}to{opacity:.62}}
 
-/* американский декор */
-.usdeco{position:absolute;pointer-events:none;z-index:1}
-.usdeco.statue{right:-2%;bottom:-6%;width:min(24vw,300px);opacity:.5;will-change:transform;animation:sway 11s ease-in-out infinite}
-@keyframes sway{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(1.2deg)}}
-.usdeco.eagle{right:4%;top:5%;width:min(14vw,168px);opacity:.5;animation:soar 9s ease-in-out infinite}
-@keyframes soar{0%,100%{transform:translate(0,0) rotate(-5deg)}50%{transform:translate(-18px,-16px) rotate(2deg)}}
 .stripesdeco{position:absolute;right:-4%;top:-6%;width:min(40vw,520px);z-index:0;pointer-events:none;opacity:.5}
 
 /* живой фон тёмных этапов */
@@ -846,8 +840,7 @@ footer a:hover{color:var(--gold)}
 /* ---------- телефон ---------- */
 @media (max-width:760px){
   /* убираем декор, который на узком экране лезет на текст */
-  .slam,.usdeco.eagle{display:none}
-  .usdeco.statue{width:150px;right:-6%;bottom:-2%;opacity:.28}
+  .slam{display:none}
   /* шапка компактнее */
     .logo img{width:52px}
   .bar{gap:10px;justify-content:space-between}
@@ -859,7 +852,6 @@ footer a:hover{color:var(--gold)}
   header{backdrop-filter:none;background:rgba(251,248,243,.97)}
   header.on-dark{backdrop-filter:none;background:rgba(11,27,58,.97)}
   .dock{backdrop-filter:none;background:#fff}
-  .usdeco.statue,.usdeco.eagle{animation:none}
   .planeg{filter:none}
   .routeline{filter:none}
   .crewcard,.ocard,.tag,.about4>div,.tr-facts>div{box-shadow:0 10px 20px -14px rgba(11,27,58,.3)}
